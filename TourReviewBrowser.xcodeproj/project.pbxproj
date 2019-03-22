@@ -71,7 +71,7 @@
 			children = (
 				307C8247224568AE0029AA8A /* Info.plist */,
 				3044DAAB2245228900721403 /* AppDelegate.swift */,
-				307C8249224569D30029AA8A /* API */,
+				307C8249224569D30029AA8A /* DataSource */,
 				307C824C224569E50029AA8A /* Config */,
 				307C824F224569EF0029AA8A /* Model */,
 				307C825422456A060029AA8A /* UI */,
@@ -79,12 +79,12 @@
 			path = TourReviewBrowser;
 			sourceTree = "<group>";
 		};
-		307C8249224569D30029AA8A /* API */ = {
+		307C8249224569D30029AA8A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
 				307C824A224569D30029AA8A /* TourReviewNetworkLoader.swift */,
 			);
-			path = API;
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		307C824C224569E50029AA8A /* Config */ = {
