@@ -11,7 +11,10 @@ class _TourReviewNetworkLoader {
     
     fileprivate static let resultsPageParam = "page"
     
-    let siestaService = Service(baseURL: _TourReviewNetworkLoader.apiBaseURL)
+    fileprivate let siestaService = Service(
+        baseURL: _TourReviewNetworkLoader.apiBaseURL,
+        standardTransformers: []
+    )
     
     var maxNumOfReviews = 2
     
@@ -21,21 +24,17 @@ class _TourReviewNetworkLoader {
     
     init() {
         #if DEBUG
-            SiestaLog.Category.enabled = [.network]
+            SiestaLog.Category.enabled = .all
         #endif
         let decoder = JSONDecoder()
 
-//        siestaService.configureTransformer("**") {
-//            try decoder.decode(TourReviewAPIResponse.self, from: $0.content)
-//        }
+        siestaService.configureTransformer("**") {
+            try decoder.decode(TourReviewAPIResponse.self, from: $0.content)
+        }
     }
     
     func loadReviews() {
         let path = "/berlin-l17/tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776/reviews.json"
-
-//        siestaService.configureTransformer(path) { (<#Entity<I>#>) -> O? in
-//            <#code#>
-//        }
         
         let resource = siestaService
             .resource(path)
@@ -58,6 +57,9 @@ extension _TourReviewNetworkLoader: ResourceObserver {
         NSLog(event._objc_stringForm)
         let dict = resource.jsonDict
         NSLog(dict.description)
+        if let response: TourReviewAPIResponse = resource.typedContent() {
+            NSLog(String(response.totalNumOfComments))
+        }
     }
     
 }
