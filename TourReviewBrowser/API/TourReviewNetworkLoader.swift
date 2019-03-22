@@ -17,9 +17,15 @@ class _TourReviewNetworkLoader {
     
     init() {
         #if DEBUG
-            SiestaLog.Category.enabled = .common
+            SiestaLog.Category.enabled = [.network]
         #endif
         
+        siestaService.configureTransformer(
+            "**",
+            contentTransform: {
+                try JSONDecoder().decode(<#T##type: Decodable.Protocol##Decodable.Protocol#>, from: <#T##Data#>)
+            }
+        )
     }
     
     func loadReviews() {
