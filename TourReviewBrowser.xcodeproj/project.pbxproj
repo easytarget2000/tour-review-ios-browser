@@ -12,6 +12,8 @@
 		3044DAB12245228900721403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAAF2245228900721403 /* Main.storyboard */; };
 		3044DAB32245228B00721403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAB22245228B00721403 /* Assets.xcassets */; };
 		3044DAB62245228B00721403 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAB42245228B00721403 /* LaunchScreen.storyboard */; };
+		307C823C2245264C0029AA8A /* TourReviewNetworkLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C823B2245264C0029AA8A /* TourReviewNetworkLoader.swift */; };
+		307C823E224526EF0029AA8A /* ConfigurationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C823D224526EF0029AA8A /* ConfigurationReader.swift */; };
 		3A46C0C5198F24CFE2DF7E7F /* Pods_TourReviewBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A52E9ABDC4028C75EB424F /* Pods_TourReviewBrowser.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 		3044DAB22245228B00721403 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3044DAB52245228B00721403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3044DAB72245228B00721403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		307C823B2245264C0029AA8A /* TourReviewNetworkLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourReviewNetworkLoader.swift; sourceTree = "<group>"; };
+		307C823D224526EF0029AA8A /* ConfigurationReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationReader.swift; sourceTree = "<group>"; };
 		66A52E9ABDC4028C75EB424F /* Pods_TourReviewBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourReviewBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C109A8F1B1532552219DA4 /* Pods-TourReviewBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourReviewBrowser.debug.xcconfig"; path = "Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		7F36611F89CFAB7E5D8157B1 /* Pods-TourReviewBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourReviewBrowser.release.xcconfig"; path = "Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 				3044DAB22245228B00721403 /* Assets.xcassets */,
 				3044DAB42245228B00721403 /* LaunchScreen.storyboard */,
 				3044DAB72245228B00721403 /* Info.plist */,
+				307C823B2245264C0029AA8A /* TourReviewNetworkLoader.swift */,
+				307C823D224526EF0029AA8A /* ConfigurationReader.swift */,
 			);
 			path = TourReviewBrowser;
 			sourceTree = "<group>";
@@ -85,7 +91,6 @@
 				72C109A8F1B1532552219DA4 /* Pods-TourReviewBrowser.debug.xcconfig */,
 				7F36611F89CFAB7E5D8157B1 /* Pods-TourReviewBrowser.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -209,8 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				307C823C2245264C0029AA8A /* TourReviewNetworkLoader.swift in Sources */,
 				3044DAAE2245228900721403 /* ViewController.swift in Sources */,
 				3044DAAC2245228900721403 /* AppDelegate.swift in Sources */,
+				307C823E224526EF0029AA8A /* ConfigurationReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
