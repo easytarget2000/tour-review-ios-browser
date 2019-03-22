@@ -16,6 +16,7 @@
 		307C824E224569E60029AA8A /* ConfigurationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C824D224569E50029AA8A /* ConfigurationReader.swift */; };
 		307C8252224569EF0029AA8A /* TourReviewAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C8250224569EF0029AA8A /* TourReviewAPIResponse.swift */; };
 		307C8253224569EF0029AA8A /* TourReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C8251224569EF0029AA8A /* TourReview.swift */; };
+		307C8256224597370029AA8A /* TourReviewSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C8255224597370029AA8A /* TourReviewSourceDelegate.swift */; };
 		3A46C0C5198F24CFE2DF7E7F /* Pods_TourReviewBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A52E9ABDC4028C75EB424F /* Pods_TourReviewBrowser.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		307C824D224569E50029AA8A /* ConfigurationReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationReader.swift; sourceTree = "<group>"; };
 		307C8250224569EF0029AA8A /* TourReviewAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourReviewAPIResponse.swift; sourceTree = "<group>"; };
 		307C8251224569EF0029AA8A /* TourReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourReview.swift; sourceTree = "<group>"; };
+		307C8255224597370029AA8A /* TourReviewSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourReviewSourceDelegate.swift; sourceTree = "<group>"; };
 		66A52E9ABDC4028C75EB424F /* Pods_TourReviewBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourReviewBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C109A8F1B1532552219DA4 /* Pods-TourReviewBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourReviewBrowser.debug.xcconfig"; path = "Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		7F36611F89CFAB7E5D8157B1 /* Pods-TourReviewBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourReviewBrowser.release.xcconfig"; path = "Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				307C824A224569D30029AA8A /* TourReviewNetworkLoader.swift */,
+				307C8255224597370029AA8A /* TourReviewSourceDelegate.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				307C8256224597370029AA8A /* TourReviewSourceDelegate.swift in Sources */,
 				307C824B224569D30029AA8A /* TourReviewNetworkLoader.swift in Sources */,
 				307C8253224569EF0029AA8A /* TourReview.swift in Sources */,
 				3044DAAE2245228900721403 /* ViewController.swift in Sources */,
