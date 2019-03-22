@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  TourReviewBrowser
-//
-//  Created by Mitch on 22.03.19.
-//  Copyright © 2019 Easy Target. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -15,6 +7,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        TourReviewNetworkLoader().loadReviews()
+    }
 }
 
