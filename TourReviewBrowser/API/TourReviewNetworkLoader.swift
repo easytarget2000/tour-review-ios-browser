@@ -33,8 +33,8 @@ class _TourReviewNetworkLoader {
         }
     }
     
-    func loadReviews() {
-        let path = "/berlin-l17/tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776/reviews.json"
+    func loadReviews(regionIDPath: String, tourIDPath: String) {
+        let path = "/\(regionIDPath)/\(tourIDPath)/reviews.json"
         
         let resource = siestaService
             .resource(path)
@@ -54,7 +54,6 @@ class _TourReviewNetworkLoader {
 extension _TourReviewNetworkLoader: ResourceObserver {
     
     func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-        NSLog(event._objc_stringForm)
         let dict = resource.jsonDict
         NSLog(dict.description)
         if let response: TourReviewAPIResponse = resource.typedContent() {

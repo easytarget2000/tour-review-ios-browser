@@ -1,6 +1,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var regionIDPath = "berlin-l17"
+    
+    var tourIDPath
+        = "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -9,7 +14,14 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        TourReviewNetworkLoader.loadReviews()
+        loadReviews()
+    }
+    
+    fileprivate func loadReviews() {
+        TourReviewNetworkLoader.loadReviews(
+            regionIDPath: regionIDPath,
+            tourIDPath: tourIDPath
+        )
     }
 }
 
