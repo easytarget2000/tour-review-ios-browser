@@ -16,6 +16,8 @@ class _TourReviewNetworkLoader {
         standardTransformers: []
     )
     
+    weak var delegate: TourReviewSourceDelegate?
+    
     var maxNumOfReviews = 2
     
     var page = 0
@@ -55,10 +57,14 @@ class _TourReviewNetworkLoader {
 extension _TourReviewNetworkLoader: ResourceObserver {
     
     func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-        let dict = resource.jsonDict
-        NSLog(dict.description)
+        #if DEBUG
+            NSLog(event._objc_stringForm)
+        #endif
         if let response: TourReviewAPIResponse = resource.typedContent() {
-            NSLog(String(response.totalNumOfComments))
+            #if DEBUG
+                NSLog(response.reviews.debugDescription)
+            #endif
+            delegate?.didFetchTourReviews(response.reviews)
         }
     }
     
