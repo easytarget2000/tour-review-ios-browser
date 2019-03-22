@@ -36,9 +36,14 @@ class _TourReviewNetworkLoader {
         }
     }
     
-    func loadReviews(regionIDPath: String, tourIDPath: String) {
-        let path = "/\(regionIDPath)/\(tourIDPath)/reviews.json"
+    func loadReviews(
+        regionIDPath: String,
+        tourIDPath: String,
+        forDelegate delegate: TourReviewSourceDelegate?
+    ) {
+        self.delegate = delegate
         
+        let path = "/\(regionIDPath)/\(tourIDPath)/reviews.json"
         let resource = siestaService
             .resource(path)
             .withParam(

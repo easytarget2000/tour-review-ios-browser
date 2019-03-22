@@ -20,8 +20,17 @@ class ViewController: UIViewController {
     fileprivate func loadReviews() {
         TourReviewNetworkLoader.loadReviews(
             regionIDPath: regionIDPath,
-            tourIDPath: tourIDPath
+            tourIDPath: tourIDPath,
+            forDelegate: self
         )
     }
 }
 
+// MARK: - TourReviewSourceDelegate
+
+extension ViewController: TourReviewSourceDelegate {
+    
+    func didFetchTourReviews(_ reviews: [TourReview]?) {
+        
+    }
+}
