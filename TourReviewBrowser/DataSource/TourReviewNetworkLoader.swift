@@ -24,8 +24,8 @@ class _TourReviewNetworkLoader {
     
     init() {
         #if DEBUG
-            SiestaLog.Category.enabled = .all
-//        SiestaLog.Category.enabled =  [.network]
+//            SiestaLog.Category.enabled = .all
+            SiestaLog.Category.enabled =  [.network]
         #endif
         let decoder = JSONDecoder()
 
