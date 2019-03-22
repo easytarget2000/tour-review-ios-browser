@@ -6,6 +6,6 @@ target 'TourReviewBrowser' do
   use_frameworks!
 
   # Pods for TourReviewBrowser
-  pod 'Siesta', '~> 1.0'
+  pod 'Siesta'
 
 end

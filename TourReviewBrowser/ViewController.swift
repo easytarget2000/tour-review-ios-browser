@@ -9,7 +9,7 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        TourReviewNetworkLoader().loadReviews()
+        TourReviewNetworkLoader.loadReviews()
     }
 }
 

@@ -1,29 +1,48 @@
 import Siesta
 
-class TourReviewNetworkLoader {
+let TourReviewNetworkLoader = _TourReviewNetworkLoader()
+
+class _TourReviewNetworkLoader {
     
     fileprivate static let apiBaseURL
         = ConfigurationReader.value(forKey: .tourReviewAPIBaseURL)
     
-    let siestaService = Service(baseURL: TourReviewNetworkLoader.apiBaseURL)
+    let siestaService = Service(baseURL: _TourReviewNetworkLoader.apiBaseURL)
+    
+    var maxNumOfReviews = 5
+    
+    var page = 0
+    
+    var rating: Int?
+    
+    init() {
+        #if DEBUG
+            SiestaLog.Category.enabled = .common
+        #endif
+        
+    }
     
     func loadReviews() {
-        let path = "berlin-l17/tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776"
+        let path = "/berlin-l17/tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776/reviews.json"
 
 //        siestaService.configureTransformer(path) { (<#Entity<I>#>) -> O? in
 //            <#code#>
 //        }
         
-        siestaService.resource(path).addObserver(self)
+        let resource = siestaService.resource(path)
+        resource.addObserver(self)
+        resource.loadIfNeeded()
     }
 }
 
 // MARK: - Siesta ResourceObserver
 
-extension TourReviewNetworkLoader: ResourceObserver {
+extension _TourReviewNetworkLoader: ResourceObserver {
     
     func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-        print(resource.description)
+        NSLog(event._objc_stringForm)
+        let dict = resource.jsonDict
+        NSLog(dict.description)
     }
     
 }
