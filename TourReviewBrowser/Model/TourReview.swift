@@ -1,32 +1,36 @@
-struct TourReview {
+struct TourReview: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case entityID = "review_id"
+    }
     
     let entityID: Int
     
-    let rating: Float
-    
-    let title: String
-    
-    let message: String
-    
-    let author: String
-    
-    let foreignLange: Bool
-    
-    let formattedDate: String
-    
-    let date: Int?
-    
-    let languageCode: String
-    
-    let travelerTypeCode: String
-    
-    let reviewerName: String
-    
-    let reviewerProfilePhotoURL: String?
-    
-    let isAnonymous: Bool
-    
-    let firstInitial: String
+//    let rating: Float
+//    
+//    let title: String
+//    
+//    let message: String
+//    
+//    let author: String
+//    
+//    let foreignLange: Bool
+//    
+//    let formattedDate: String
+//    
+//    let date: Int?
+//    
+//    let languageCode: String
+//    
+//    let travelerTypeCode: String
+//    
+//    let reviewerName: String
+//    
+//    let reviewerProfilePhotoURL: String?
+//    
+//    let isAnonymous: Bool
+//    
+//    let firstInitial: String
     
 //    "review_id": 5203197,
 //    "rating": "5.0",
