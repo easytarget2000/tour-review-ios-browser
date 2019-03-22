@@ -1,7 +1,8 @@
 struct TourReviewAPIResponse: Codable {
     
-//    enum CodingKeys: String, CodingKey {
-//        typealias RawValue = <#type#>
-//        
-//    }
+    let success: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case success = "status"
+    }
 }
