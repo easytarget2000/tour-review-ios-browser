@@ -3,7 +3,7 @@ import Siesta
 class TourReviewNetworkLoader {
     
     fileprivate static let apiBaseURL
-        = ConfigurationReader.value(forKey: .apiBaseURL)
+        = ConfigurationReader.value(forKey: .tourReviewAPIBaseURL)
     
     let siestaService = Service(baseURL: TourReviewNetworkLoader.apiBaseURL)
     
