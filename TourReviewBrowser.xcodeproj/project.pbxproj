@@ -12,6 +12,7 @@
 		3044DAB12245228900721403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAAF2245228900721403 /* Main.storyboard */; };
 		3044DAB32245228B00721403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAB22245228B00721403 /* Assets.xcassets */; };
 		3044DAB62245228B00721403 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAB42245228B00721403 /* LaunchScreen.storyboard */; };
+		3A46C0C5198F24CFE2DF7E7F /* Pods_TourReviewBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A52E9ABDC4028C75EB424F /* Pods_TourReviewBrowser.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		3044DAB22245228B00721403 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3044DAB52245228B00721403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3044DAB72245228B00721403 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66A52E9ABDC4028C75EB424F /* Pods_TourReviewBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourReviewBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72C109A8F1B1532552219DA4 /* Pods-TourReviewBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourReviewBrowser.debug.xcconfig"; path = "Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser.debug.xcconfig"; sourceTree = "<group>"; };
+		7F36611F89CFAB7E5D8157B1 /* Pods-TourReviewBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourReviewBrowser.release.xcconfig"; path = "Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A46C0C5198F24CFE2DF7E7F /* Pods_TourReviewBrowser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				3044DAAA2245228900721403 /* TourReviewBrowser */,
 				3044DAA92245228900721403 /* Products */,
+				EDE27A7BEF0E0C7C5B615D2A /* Pods */,
+				553730D38ACB931FE86F32E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,24 @@
 			path = TourReviewBrowser;
 			sourceTree = "<group>";
 		};
+		553730D38ACB931FE86F32E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66A52E9ABDC4028C75EB424F /* Pods_TourReviewBrowser.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDE27A7BEF0E0C7C5B615D2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72C109A8F1B1532552219DA4 /* Pods-TourReviewBrowser.debug.xcconfig */,
+				7F36611F89CFAB7E5D8157B1 /* Pods-TourReviewBrowser.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3044DABA2245228B00721403 /* Build configuration list for PBXNativeTarget "TourReviewBrowser" */;
 			buildPhases = (
+				12F2A1800D16FCB413DD05AA /* [CP] Check Pods Manifest.lock */,
 				3044DAA42245228900721403 /* Sources */,
 				3044DAA52245228900721403 /* Frameworks */,
 				3044DAA62245228900721403 /* Resources */,
+				CDB795A6F9BCFDA7B1BDC54E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12F2A1800D16FCB413DD05AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TourReviewBrowser-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDB795A6F9BCFDA7B1BDC54E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siesta.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3044DAA42245228900721403 /* Sources */ = {
@@ -280,6 +354,7 @@
 		};
 		3044DABB2245228B00721403 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72C109A8F1B1532552219DA4 /* Pods-TourReviewBrowser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +372,7 @@
 		};
 		3044DABC2245228B00721403 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F36611F89CFAB7E5D8157B1 /* Pods-TourReviewBrowser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
