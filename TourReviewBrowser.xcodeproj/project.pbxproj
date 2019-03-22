@@ -12,7 +12,7 @@
 		3044DAB12245228900721403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAAF2245228900721403 /* Main.storyboard */; };
 		3044DAB32245228B00721403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAB22245228B00721403 /* Assets.xcassets */; };
 		3044DAB62245228B00721403 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAB42245228B00721403 /* LaunchScreen.storyboard */; };
-		307C824B224569D30029AA8A /* TourReviewNetworkLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C824A224569D30029AA8A /* TourReviewNetworkLoader.swift */; };
+		307C824B224569D30029AA8A /* TourReviewNetworkSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C824A224569D30029AA8A /* TourReviewNetworkSource.swift */; };
 		307C824E224569E60029AA8A /* ConfigurationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C824D224569E50029AA8A /* ConfigurationReader.swift */; };
 		307C8252224569EF0029AA8A /* TourReviewAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C8250224569EF0029AA8A /* TourReviewAPIResponse.swift */; };
 		307C8253224569EF0029AA8A /* TourReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C8251224569EF0029AA8A /* TourReview.swift */; };
@@ -28,7 +28,7 @@
 		3044DAB22245228B00721403 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3044DAB52245228B00721403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		307C8247224568AE0029AA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		307C824A224569D30029AA8A /* TourReviewNetworkLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourReviewNetworkLoader.swift; sourceTree = "<group>"; };
+		307C824A224569D30029AA8A /* TourReviewNetworkSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourReviewNetworkSource.swift; sourceTree = "<group>"; };
 		307C824D224569E50029AA8A /* ConfigurationReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationReader.swift; sourceTree = "<group>"; };
 		307C8250224569EF0029AA8A /* TourReviewAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourReviewAPIResponse.swift; sourceTree = "<group>"; };
 		307C8251224569EF0029AA8A /* TourReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourReview.swift; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		307C8249224569D30029AA8A /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				307C824A224569D30029AA8A /* TourReviewNetworkLoader.swift */,
+				307C824A224569D30029AA8A /* TourReviewNetworkSource.swift */,
 				307C8255224597370029AA8A /* TourReviewSourceDelegate.swift */,
 			);
 			path = DataSource;
@@ -256,7 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				307C8256224597370029AA8A /* TourReviewSourceDelegate.swift in Sources */,
-				307C824B224569D30029AA8A /* TourReviewNetworkLoader.swift in Sources */,
+				307C824B224569D30029AA8A /* TourReviewNetworkSource.swift in Sources */,
 				307C8253224569EF0029AA8A /* TourReview.swift in Sources */,
 				3044DAAE2245228900721403 /* ViewController.swift in Sources */,
 				307C8252224569EF0029AA8A /* TourReviewAPIResponse.swift in Sources */,

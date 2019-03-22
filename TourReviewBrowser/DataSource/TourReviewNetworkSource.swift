@@ -1,8 +1,8 @@
 import Siesta
 
-let TourReviewNetworkLoader = _TourReviewNetworkLoader()
+let TourReviewNetworkSource = _TourReviewNetworkSource()
 
-class _TourReviewNetworkLoader {
+class _TourReviewNetworkSource {
     
     fileprivate static let apiBaseURL
         = ConfigurationReader.value(forKey: .tourReviewAPIBaseURL)
@@ -12,7 +12,7 @@ class _TourReviewNetworkLoader {
     fileprivate static let resultsPageParam = "page"
     
     fileprivate let siestaService = Service(
-        baseURL: _TourReviewNetworkLoader.apiBaseURL,
+        baseURL: _TourReviewNetworkSource.apiBaseURL,
         standardTransformers: []
     )
     
@@ -47,10 +47,10 @@ class _TourReviewNetworkLoader {
         let resource = siestaService
             .resource(path)
             .withParam(
-                _TourReviewNetworkLoader.maxNumOfResultsParam,
+                _TourReviewNetworkSource.maxNumOfResultsParam,
                 String(maxNumOfReviews)
             )
-            .withParam(_TourReviewNetworkLoader.resultsPageParam, String(page))
+            .withParam(_TourReviewNetworkSource.resultsPageParam, String(page))
         
         resource.addObserver(self)
         resource.loadIfNeeded()
@@ -59,7 +59,7 @@ class _TourReviewNetworkLoader {
 
 // MARK: - Siesta ResourceObserver
 
-extension _TourReviewNetworkLoader: ResourceObserver {
+extension _TourReviewNetworkSource: ResourceObserver {
     
     func resourceChanged(_ resource: Resource, event: ResourceEvent) {
         #if DEBUG
