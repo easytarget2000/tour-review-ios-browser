@@ -2,7 +2,15 @@ import UIKit
 
 class TourReviewCollectionViewController: UICollectionViewController {
     
-    fileprivate var reviews: [TourReview]?
+    fileprivate var regionIDPath: String!
+    
+    fileprivate var tourIDPath: String!
+    
+    fileprivate var reviews: [TourReview]? {
+        didSet {
+            refreshContentView()
+        }
+    }
     
     fileprivate var numOfReviewCells: Int {
         get {
@@ -14,13 +22,24 @@ class TourReviewCollectionViewController: UICollectionViewController {
         }
     }
     
-    static func newInstance() -> TourReviewCollectionViewController {
-        return self.init()
+    static func newInstance(
+        regionIDPath: String,
+        tourIDPath: String
+    ) -> TourReviewCollectionViewController {
+        let instance = self.init()
+        instance.regionIDPath = "berlin-l17"
+        instance.tourIDPath = "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776"
+        return instance
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadReviews()
     }
 
     // MARK: UICollectionViewDataSource
@@ -62,10 +81,32 @@ class TourReviewCollectionViewController: UICollectionViewController {
         clearsSelectionOnViewWillAppear = false
     }
     
+    fileprivate func loadReviews() {
+        TourReviewNetworkSource.loadReviews(
+            regionIDPath: regionIDPath,
+            tourIDPath: tourIDPath,
+            forDelegate: self
+        )
+    }
+    
     fileprivate func populateCell(
         _ cell: TourReviewCollectionViewCell,
         atRow row: Int
     ) -> TourReviewCollectionViewCell {
         return cell
+    }
+    
+    fileprivate func refreshContentView() {
+        collectionView.reloadData()
+    }
+}
+
+
+// MARK: - TourReviewSourceDelegate
+
+extension TourReviewCollectionViewController: TourReviewSourceDelegate {
+    
+    func didFetchTourReviews(_ reviews: [TourReview]?) {
+        self.reviews = reviews
     }
 }

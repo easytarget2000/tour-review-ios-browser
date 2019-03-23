@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3044DAAC2245228900721403 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044DAAB2245228900721403 /* AppDelegate.swift */; };
-		3044DAAE2245228900721403 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044DAAD2245228900721403 /* ViewController.swift */; };
-		3044DAB12245228900721403 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAAF2245228900721403 /* Main.storyboard */; };
 		3044DAB32245228B00721403 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3044DAB22245228B00721403 /* Assets.xcassets */; };
 		307C824B224569D30029AA8A /* TourReviewNetworkSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C824A224569D30029AA8A /* TourReviewNetworkSource.swift */; };
 		307C824E224569E60029AA8A /* ConfigurationReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C824D224569E50029AA8A /* ConfigurationReader.swift */; };
@@ -26,8 +24,6 @@
 /* Begin PBXFileReference section */
 		3044DAA82245228900721403 /* TourReviewBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourReviewBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3044DAAB2245228900721403 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3044DAAD2245228900721403 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3044DAB02245228900721403 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3044DAB22245228B00721403 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		307C8247224568AE0029AA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		307C824A224569D30029AA8A /* TourReviewNetworkSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourReviewNetworkSource.swift; sourceTree = "<group>"; };
@@ -116,8 +112,6 @@
 		307C825422456A060029AA8A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3044DAAF2245228900721403 /* Main.storyboard */,
-				3044DAAD2245228900721403 /* ViewController.swift */,
 				3044DAB22245228B00721403 /* Assets.xcassets */,
 				308999FB2246BD5800AB553B /* TourReviewCollectionViewController.swift */,
 				308999FC2246BD5800AB553B /* TourReviewCollectionViewController.xib */,
@@ -207,7 +201,6 @@
 				30899A022246BE4B00AB553B /* TourReviewCollectionViewCell.xib in Resources */,
 				308999FE2246BD5800AB553B /* TourReviewCollectionViewController.xib in Resources */,
 				3044DAB32245228B00721403 /* Assets.xcassets in Resources */,
-				3044DAB12245228900721403 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +263,6 @@
 				307C824B224569D30029AA8A /* TourReviewNetworkSource.swift in Sources */,
 				308999FD2246BD5800AB553B /* TourReviewCollectionViewController.swift in Sources */,
 				307C8253224569EF0029AA8A /* TourReview.swift in Sources */,
-				3044DAAE2245228900721403 /* ViewController.swift in Sources */,
 				307C8252224569EF0029AA8A /* TourReviewAPIResponse.swift in Sources */,
 				3044DAAC2245228900721403 /* AppDelegate.swift in Sources */,
 				307C824E224569E60029AA8A /* ConfigurationReader.swift in Sources */,
@@ -278,17 +270,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		3044DAAF2245228900721403 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3044DAB02245228900721403 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3044DAB82245228B00721403 /* Debug */ = {
