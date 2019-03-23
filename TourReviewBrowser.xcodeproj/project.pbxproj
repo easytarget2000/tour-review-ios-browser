@@ -248,12 +248,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AXRatingView/AXRatingView.framework",
 				"${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AXRatingView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Siesta.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

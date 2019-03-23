@@ -6,6 +6,7 @@ target 'TourReviewBrowser' do
   use_frameworks!
 
   # Pods for TourReviewBrowser
+  pod 'AXRatingView', '~>1.0.6'
   pod 'Siesta', '~> 1.4.2'
 
 end
