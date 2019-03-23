@@ -15,3 +15,4 @@ This project uses CocoaPods to add the Siesta repository to the Xcode project. B
 * Sorting
 * Separate detail screen for individual reviews
 * Pagination of API call
+* Read tour ID from config file
