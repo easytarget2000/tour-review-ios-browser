@@ -1,5 +1,5 @@
 struct TourReviewViewModel {
     
-    private let review: TourReview
+    let review: TourReview
     
 }

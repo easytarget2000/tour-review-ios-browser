@@ -114,6 +114,9 @@ class TourReviewCollectionViewController: UICollectionViewController {
         _ cell: TourReviewCollectionViewCell,
         atRow row: Int
     ) -> TourReviewCollectionViewCell {
+        let review = reviews![row]
+        let reviewViewModel = TourReviewViewModel(review: review)
+        cell.populateWithViewModel(reviewViewModel)
         return cell
     }
     
