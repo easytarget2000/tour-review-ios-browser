@@ -17,3 +17,5 @@ This project uses CocoaPods to add the Siesta repository to the Xcode project. B
 * Pagination of API call
 * Read tour ID from config file
 * Pull down to refresh
+* Add a loading indicator
+* Handle API errors
