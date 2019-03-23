@@ -26,9 +26,12 @@ class TourReviewCollectionViewController: UICollectionViewController {
         regionIDPath: String,
         tourIDPath: String
     ) -> TourReviewCollectionViewController {
-        let instance = self.init()
-        instance.regionIDPath = "berlin-l17"
-        instance.tourIDPath = "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776"
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        let instance = TourReviewCollectionViewController(
+            collectionViewLayout: collectionViewLayout
+        )
+        instance.regionIDPath = regionIDPath
+        instance.tourIDPath = tourIDPath
         return instance
     }
     
