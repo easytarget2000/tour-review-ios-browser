@@ -16,11 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     fileprivate func initScreen() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let firstViewController = TourReviewCollectionViewController.newInstance(
-            regionIDPath: "berlin-l17",
-            tourIDPath: "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776"
-        )
-        window?.rootViewController = firstViewController
+        window?.rootViewController = TourReviewNavigationController()
         window?.makeKeyAndVisible()
     }
 }

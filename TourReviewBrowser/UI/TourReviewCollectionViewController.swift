@@ -37,6 +37,7 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         setupCollectionView()
     }
     
@@ -71,6 +72,10 @@ class TourReviewCollectionViewController: UICollectionViewController {
     }
     
     // MARK: - Implementations
+    
+    fileprivate func setup() {
+        view.backgroundColor = .white
+    }
     
     fileprivate func setupCollectionView() {
         let reviewCellNib = UINib(
