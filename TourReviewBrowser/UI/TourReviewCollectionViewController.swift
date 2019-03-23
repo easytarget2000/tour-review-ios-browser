@@ -2,6 +2,8 @@ import UIKit
 
 class TourReviewCollectionViewController: UICollectionViewController {
     
+    fileprivate static let cellHeight = CGFloat(128)
+    
     fileprivate var regionIDPath: String!
     
     fileprivate var tourIDPath: String!
@@ -38,7 +40,6 @@ class TourReviewCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        setupCollectionView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +77,12 @@ class TourReviewCollectionViewController: UICollectionViewController {
     fileprivate func setup() {
         view.backgroundColor = .white
         collectionView.backgroundColor = .clear
+        setTitle()
+        setupCollectionView()
+    }
+    
+    fileprivate func setTitle() {
+        
     }
     
     fileprivate func setupCollectionView() {
@@ -120,9 +127,13 @@ UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 50)
+        return cellSize(availableWidth: collectionView.frame.width)
     }
     
+    fileprivate func cellSize(availableWidth: CGFloat) -> CGSize {
+        let cellHeight = TourReviewCollectionViewController.cellHeight
+        return CGSize(width: availableWidth, height: cellHeight)
+    }
 }
 
 // MARK: - TourReviewSourceDelegate
