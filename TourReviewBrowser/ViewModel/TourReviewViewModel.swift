@@ -4,15 +4,15 @@ struct TourReviewViewModel {
     
     let review: TourReview
     
-    var title: String {
+    var title: String? {
         get {
-            return review.title ?? ""
+            return review.title
         }
     }
     
-    var date: String {
+    var additionalInfo: String {
         get {
-            return review.formattedDate
+            return "\(review.authorName)\n\(review.formattedDate)"
         }
     }
     

@@ -8,17 +8,23 @@ class TourReviewCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var ratingView: AXRatingView!
     
     @IBOutlet weak var messageLabel: UILabel!
     
+    @IBOutlet weak var additionalInfoLabel: UILabel!
+    
     func populateWithViewModel(_ viewModel: TourReviewViewModel) {
-        titleLabel.text = viewModel.title
-        dateLabel.text = viewModel.date
+        if let title = viewModel.title {
+            titleLabel.text = viewModel.title
+            titleLabel.isHidden = false
+        } else {
+            titleLabel.isHidden = true
+        }
+        
         ratingView.value = viewModel.rating
         messageLabel.text = viewModel.message
+        additionalInfoLabel.text = viewModel.additionalInfo
     }
     
 }
