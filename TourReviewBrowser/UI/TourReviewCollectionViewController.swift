@@ -101,6 +101,7 @@ class TourReviewCollectionViewController: UICollectionViewController {
         TourReviewNetworkSource.loadReviews(
             regionIDPath: regionIDPath,
             tourIDPath: tourIDPath,
+            sortOrder: nil,
             forDelegate: self
         )
     }
