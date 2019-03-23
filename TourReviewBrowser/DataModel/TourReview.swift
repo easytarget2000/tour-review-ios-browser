@@ -2,7 +2,7 @@ import Foundation
 
 struct TourReview: Codable {
     
-    private static let maxRating = Float(5.0)
+    fileprivate static let maxRating = Float(5.0)
     
     enum CodingKeys: String, CodingKey {
         case entityID                   = "review_id"

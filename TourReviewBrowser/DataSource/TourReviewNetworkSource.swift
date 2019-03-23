@@ -20,7 +20,7 @@ class _TourReviewNetworkSource {
     
     weak var delegate: TourReviewSourceDelegate?
     
-    var maxNumOfReviews = 2
+    var maxNumOfReviews = 50
     
     var page = 0
     

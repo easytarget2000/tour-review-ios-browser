@@ -1,5 +1,7 @@
 struct TourReviewViewModel {
     
+    fileprivate static let numOfStars = Float(5)
+    
     let review: TourReview
     
     var title: String {
@@ -16,7 +18,7 @@ struct TourReviewViewModel {
     
     var rating: Float {
         get {
-            return review.rating
+            return review.rating * TourReviewViewModel.numOfStars
         }
     }
     
