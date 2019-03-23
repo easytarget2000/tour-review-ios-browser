@@ -11,6 +11,8 @@ class _TourReviewNetworkSource {
     
     fileprivate static let resultsPageParam = "page"
     
+    fileprivate static let sortOrderParam = "sortBy"
+    
     fileprivate let siestaService = Service(
         baseURL: _TourReviewNetworkSource.apiBaseURL,
         standardTransformers: []
@@ -26,7 +28,6 @@ class _TourReviewNetworkSource {
     
     init() {
         #if DEBUG
-//            SiestaLog.Category.enabled = .all
             SiestaLog.Category.enabled =  [.network]
         #endif
         let decoder = JSONDecoder()
@@ -39,6 +40,7 @@ class _TourReviewNetworkSource {
     func loadReviews(
         regionIDPath: String,
         tourIDPath: String,
+        sortOrder: TourReviewSortOrder?,
         forDelegate delegate: TourReviewSourceDelegate?
     ) {
         self.delegate = delegate
@@ -52,8 +54,26 @@ class _TourReviewNetworkSource {
             )
             .withParam(_TourReviewNetworkSource.resultsPageParam, String(page))
         
+        if let sortOrder = sortOrder {
+            let _ = resource.withParam(
+                _TourReviewNetworkSource.sortOrderParam,
+                _TourReviewNetworkSource.sortOrderParamValue(sortOrder)
+            )
+        }
+        
         resource.addObserver(self)
         resource.loadIfNeeded()
+    }
+    
+    fileprivate static func sortOrderParamValue(
+        _ sortOrder: TourReviewSortOrder
+    ) -> String {
+        switch sortOrder {
+        case .ascending:
+            return "ASC"
+        case .descending:
+            return "DESC"
+        }
     }
 }
 
