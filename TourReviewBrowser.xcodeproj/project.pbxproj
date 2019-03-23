@@ -21,6 +21,7 @@
 		30899A082246D3D500AB553B /* TourReviewNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30899A062246D3D500AB553B /* TourReviewNavigationController.xib */; };
 		30899A0A2246D60E00AB553B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30899A092246D60E00AB553B /* Localizable.strings */; };
 		30899A0C2246D72400AB553B /* TourReviewSortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30899A0B2246D72400AB553B /* TourReviewSortOrder.swift */; };
+		30899A0F2246EE1C00AB553B /* TourReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30899A0E2246EE1C00AB553B /* TourReviewViewModel.swift */; };
 		3A46C0C5198F24CFE2DF7E7F /* Pods_TourReviewBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66A52E9ABDC4028C75EB424F /* Pods_TourReviewBrowser.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		30899A062246D3D500AB553B /* TourReviewNavigationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourReviewNavigationController.xib; sourceTree = "<group>"; };
 		30899A092246D60E00AB553B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		30899A0B2246D72400AB553B /* TourReviewSortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourReviewSortOrder.swift; sourceTree = "<group>"; };
+		30899A0E2246EE1C00AB553B /* TourReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourReviewViewModel.swift; sourceTree = "<group>"; };
 		66A52E9ABDC4028C75EB424F /* Pods_TourReviewBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourReviewBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72C109A8F1B1532552219DA4 /* Pods-TourReviewBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourReviewBrowser.debug.xcconfig"; path = "Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		7F36611F89CFAB7E5D8157B1 /* Pods-TourReviewBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourReviewBrowser.release.xcconfig"; path = "Target Support Files/Pods-TourReviewBrowser/Pods-TourReviewBrowser.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,10 +83,11 @@
 			children = (
 				307C8247224568AE0029AA8A /* Info.plist */,
 				3044DAAB2245228900721403 /* AppDelegate.swift */,
-				307C8249224569D30029AA8A /* DataSource */,
 				307C824C224569E50029AA8A /* Config */,
-				307C824F224569EF0029AA8A /* Model */,
+				307C824F224569EF0029AA8A /* DataModel */,
+				307C8249224569D30029AA8A /* DataSource */,
 				307C825422456A060029AA8A /* UI */,
+				30899A0D2246EE0200AB553B /* ViewModel */,
 			);
 			path = TourReviewBrowser;
 			sourceTree = "<group>";
@@ -107,13 +110,13 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		307C824F224569EF0029AA8A /* Model */ = {
+		307C824F224569EF0029AA8A /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
 				307C8250224569EF0029AA8A /* TourReviewAPIResponse.swift */,
 				307C8251224569EF0029AA8A /* TourReview.swift */,
 			);
-			path = Model;
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		307C825422456A060029AA8A /* UI */ = {
@@ -128,6 +131,14 @@
 				30899A062246D3D500AB553B /* TourReviewNavigationController.xib */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		30899A0D2246EE0200AB553B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				30899A0E2246EE1C00AB553B /* TourReviewViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		553730D38ACB931FE86F32E1 /* Frameworks */ = {
@@ -271,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30899A012246BE4B00AB553B /* TourReviewCollectionViewCell.swift in Sources */,
+				30899A0F2246EE1C00AB553B /* TourReviewViewModel.swift in Sources */,
 				30899A072246D3D500AB553B /* TourReviewNavigationController.swift in Sources */,
 				307C8256224597370029AA8A /* TourReviewSourceDelegate.swift in Sources */,
 				307C824B224569D30029AA8A /* TourReviewNetworkSource.swift in Sources */,
