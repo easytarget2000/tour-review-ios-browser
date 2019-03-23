@@ -5,7 +5,7 @@ struct TourReview: Codable {
 //        case date                       = "date_unformatted"
         case formattedDate              = "date"
         case title
-//        case rating
+        case rawRating                  = "rating"
         case message
         case isForeignLanguage          = "foreignLanguage"
         case languageCode
@@ -21,7 +21,7 @@ struct TourReview: Codable {
     let title: String?
 //    let date: Int?
     let formattedDate: String
-//    let rating: Float
+    private let rawRating: String
     let message: String
     let isForeignLanguage: Bool
     let languageCode: String
@@ -34,4 +34,20 @@ struct TourReview: Codable {
     
     //    let travelerTypeCode: String
     //    "traveler_type": "couple",
+    
+    var description: String {
+        get {
+            return "Review \(entityID):\n"
+                + "\(title ?? "")\n"
+                + "\(formattedDate)\n"
+                + "\(rating)\n"
+                + "\(message)"
+        }
+    }
+    
+    var rating: Float {
+        get {
+            return Float(rawRating)!
+        }
+    }
 }

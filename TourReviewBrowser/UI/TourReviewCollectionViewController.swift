@@ -2,7 +2,7 @@ import UIKit
 
 class TourReviewCollectionViewController: UICollectionViewController {
     
-    fileprivate static let cellHeight = CGFloat(128)
+    fileprivate static let cellHeight = CGFloat(256)
     
     fileprivate var regionIDPath: String!
     
