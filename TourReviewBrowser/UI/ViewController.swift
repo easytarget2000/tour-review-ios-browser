@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     }
     
     fileprivate func loadReviews() {
-        TourReviewNetworkLoader.loadReviews(
+        TourReviewNetworkSource.loadReviews(
             regionIDPath: regionIDPath,
             tourIDPath: tourIDPath,
             forDelegate: self
