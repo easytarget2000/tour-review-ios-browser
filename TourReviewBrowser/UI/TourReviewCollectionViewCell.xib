@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="su8-22-GH3" userLabel="TitleLabel">
-                        <rect key="frame" x="20" y="20" width="92" height="20"/>
+                        <rect key="frame" x="20" y="20" width="380" height="20"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="BWL-6S-BbT" secondAttribute="trailing" constant="20" id="gGb-SJ-7Lh"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="XJo-2x-5bp" secondAttribute="trailing" constant="20" id="lNC-8u-VM6"/>
                 <constraint firstItem="su8-22-GH3" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="mKw-8Y-VZE"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="su8-22-GH3" secondAttribute="trailing" constant="308" id="q0F-Vb-CAb"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="su8-22-GH3" secondAttribute="trailing" constant="20" id="q0F-Vb-CAb"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BWL-6S-BbT" secondAttribute="bottom" constant="20" id="tVU-0W-RR7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
