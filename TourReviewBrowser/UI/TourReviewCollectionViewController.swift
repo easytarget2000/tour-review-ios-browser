@@ -82,7 +82,11 @@ class TourReviewCollectionViewController: UICollectionViewController {
     }
     
     fileprivate func setTitle() {
-        
+        let title = NSLocalizedString(
+            "TourReviewCollectionTitle",
+            comment: "Reviews"
+        )
+        self.title = title
     }
     
     fileprivate func setupCollectionView() {
