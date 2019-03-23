@@ -119,13 +119,13 @@
 		307C825422456A060029AA8A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				3044DAB22245228B00721403 /* Assets.xcassets */,
-				308999FB2246BD5800AB553B /* TourReviewCollectionViewController.swift */,
-				308999FF2246BE4B00AB553B /* TourReviewCollectionViewCell.swift */,
-				30899A002246BE4B00AB553B /* TourReviewCollectionViewCell.xib */,
-				30899A052246D3D500AB553B /* TourReviewNavigationController.swift */,
-				30899A062246D3D500AB553B /* TourReviewNavigationController.xib */,
 				30899A092246D60E00AB553B /* Localizable.strings */,
+				308999FF2246BE4B00AB553B /* TourReviewCollectionViewCell.swift */,
+				308999FB2246BD5800AB553B /* TourReviewCollectionViewController.swift */,
+				30899A052246D3D500AB553B /* TourReviewNavigationController.swift */,
+				3044DAB22245228B00721403 /* Assets.xcassets */,
+				30899A002246BE4B00AB553B /* TourReviewCollectionViewCell.xib */,
+				30899A062246D3D500AB553B /* TourReviewNavigationController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
