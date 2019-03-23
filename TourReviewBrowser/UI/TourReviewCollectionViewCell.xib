@@ -31,12 +31,12 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LS8-RQ-elI" userLabel="RatingView" customClass="AXRatingView">
-                        <rect key="frame" x="20" y="48.5" width="380" height="92.5"/>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LS8-RQ-elI" userLabel="RatingView" customClass="AXRatingView">
+                        <rect key="frame" x="20" y="48.5" width="380" height="26.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJo-2x-5bp" userLabel="MessageLabel">
-                        <rect key="frame" x="20" y="174.5" width="380" height="87.5"/>
+                        <rect key="frame" x="20" y="108.5" width="380" height="87.5"/>
                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,7 +55,7 @@
                 <constraint firstItem="LS8-RQ-elI" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="Wzt-ta-Ai1"/>
                 <constraint firstItem="BWL-6S-BbT" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="20" id="bs4-BQ-xy0"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="BWL-6S-BbT" secondAttribute="trailing" constant="20" id="gGb-SJ-7Lh"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="XJo-2x-5bp" secondAttribute="bottom" constant="20" id="jfX-He-of7"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XJo-2x-5bp" secondAttribute="bottom" constant="20" id="jfX-He-of7"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="XJo-2x-5bp" secondAttribute="trailing" constant="20" id="lNC-8u-VM6"/>
                 <constraint firstItem="su8-22-GH3" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="mKw-8Y-VZE"/>
             </constraints>
