@@ -11,7 +11,7 @@ This project uses CocoaPods to add the Siesta repository to the Xcode project. B
 
 ## Structure ##
 
-## Potential features ##
+## Potential Features ##
 * Sorting
 * Separate detail screen for individual reviews
 * Pagination of API call
@@ -19,3 +19,7 @@ This project uses CocoaPods to add the Siesta repository to the Xcode project. B
 * Pull down to refresh
 * Add a loading indicator
 * Handle API errors
+
+## Third-Party Libraries ##
+* <a href="https://github.com/akiroom/AXRatingView">AXRatingView</a>
+* <a href="https://github.com/bustoutsolutions/siesta">Siesta</a>
