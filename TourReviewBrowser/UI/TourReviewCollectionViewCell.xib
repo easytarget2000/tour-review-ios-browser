@@ -35,7 +35,7 @@
                         <rect key="frame" x="20" y="48.5" width="380" height="92.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJo-2x-5bp">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJo-2x-5bp" userLabel="MessageLabel">
                         <rect key="frame" x="20" y="174.5" width="380" height="87.5"/>
                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -61,6 +61,12 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="420" height="282"/>
+            <connections>
+                <outlet property="dateLabel" destination="BWL-6S-BbT" id="Rpo-EW-rkm"/>
+                <outlet property="messageLabel" destination="XJo-2x-5bp" id="re9-JG-49U"/>
+                <outlet property="ratingView" destination="LS8-RQ-elI" id="57U-bp-MhC"/>
+                <outlet property="titleLabel" destination="su8-22-GH3" id="Bk9-nx-mSz"/>
+            </connections>
             <point key="canvasLocation" x="348.80000000000001" y="152.92353823088456"/>
         </collectionViewCell>
     </objects>

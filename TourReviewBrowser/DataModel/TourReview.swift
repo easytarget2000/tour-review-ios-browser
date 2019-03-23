@@ -1,10 +1,12 @@
+import Foundation
+
 struct TourReview: Codable {
     
     private static let maxRating = Float(5.0)
     
     enum CodingKeys: String, CodingKey {
         case entityID                   = "review_id"
-//        case date                       = "date_unformatted"
+//        case rawDate                    = "date_unformatted"
         case formattedDate              = "date"
         case title
         case rawRating                  = "rating"
@@ -21,7 +23,6 @@ struct TourReview: Codable {
     
     let entityID: Int
     let title: String?
-//    let date: Int?
     let formattedDate: String
     private let rawRating: String
     let message: String
@@ -50,6 +51,12 @@ struct TourReview: Codable {
     var rating: Float {
         get {
             return Float(rawRating)! / TourReview.maxRating
+        }
+    }
+    
+    var date: Date? {
+        get {
+            return nil
         }
     }
 }

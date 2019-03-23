@@ -8,6 +8,12 @@ struct TourReviewViewModel {
         }
     }
     
+    var date: String {
+        get {
+            return review.formattedDate
+        }
+    }
+    
     var rating: Float {
         get {
             return review.rating
