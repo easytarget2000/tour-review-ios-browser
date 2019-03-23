@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  TourReviewBrowser
-//
-//  Created by Mitch on 22.03.19.
-//  Copyright © 2019 Easy Target. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
