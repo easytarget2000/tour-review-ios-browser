@@ -11,10 +11,11 @@ This project uses CocoaPods to add third-party repositories to the Xcode project
 
 ## Structure ##
 
-## Potential Features ##
+## Potential Features & Improvements ##
 * Sorting
 * Separate detail screen for individual reviews
-* Pagination of API call
+* Smoothness of scrolling while loading items from API
+* Empty cells bug
 * Read tour ID from config file
 * Pull down to refresh
 * Add a loading indicator
