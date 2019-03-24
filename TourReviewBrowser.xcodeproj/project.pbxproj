@@ -16,7 +16,6 @@
 		307C8256224597370029AA8A /* TourReviewSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307C8255224597370029AA8A /* TourReviewSourceDelegate.swift */; };
 		308999FD2246BD5800AB553B /* TourReviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308999FB2246BD5800AB553B /* TourReviewTableViewController.swift */; };
 		30899A072246D3D500AB553B /* TourReviewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30899A052246D3D500AB553B /* TourReviewNavigationController.swift */; };
-		30899A082246D3D500AB553B /* TourReviewNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30899A062246D3D500AB553B /* TourReviewNavigationController.xib */; };
 		30899A0A2246D60E00AB553B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30899A092246D60E00AB553B /* Localizable.strings */; };
 		30899A0C2246D72400AB553B /* TourReviewSortOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30899A0B2246D72400AB553B /* TourReviewSortOrder.swift */; };
 		30899A0F2246EE1C00AB553B /* TourReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30899A0E2246EE1C00AB553B /* TourReviewViewModel.swift */; };
@@ -37,7 +36,6 @@
 		307C8255224597370029AA8A /* TourReviewSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourReviewSourceDelegate.swift; sourceTree = "<group>"; };
 		308999FB2246BD5800AB553B /* TourReviewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourReviewTableViewController.swift; sourceTree = "<group>"; };
 		30899A052246D3D500AB553B /* TourReviewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourReviewNavigationController.swift; sourceTree = "<group>"; };
-		30899A062246D3D500AB553B /* TourReviewNavigationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourReviewNavigationController.xib; sourceTree = "<group>"; };
 		30899A092246D60E00AB553B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		30899A0B2246D72400AB553B /* TourReviewSortOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourReviewSortOrder.swift; sourceTree = "<group>"; };
 		30899A0E2246EE1C00AB553B /* TourReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourReviewViewModel.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 				308999FB2246BD5800AB553B /* TourReviewTableViewController.swift */,
 				30899A052246D3D500AB553B /* TourReviewNavigationController.swift */,
 				3044DAB22245228B00721403 /* Assets.xcassets */,
-				30899A062246D3D500AB553B /* TourReviewNavigationController.xib */,
 				30899A122248340B00AB553B /* TourReviewCell.swift */,
 				30899A132248340B00AB553B /* TourReviewCell.xib */,
 			);
@@ -218,7 +215,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30899A082246D3D500AB553B /* TourReviewNavigationController.xib in Resources */,
 				30899A0A2246D60E00AB553B /* Localizable.strings in Resources */,
 				30899A152248340B00AB553B /* TourReviewCell.xib in Resources */,
 				3044DAB32245228B00721403 /* Assets.xcassets in Resources */,
