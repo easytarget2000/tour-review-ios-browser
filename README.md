@@ -9,8 +9,6 @@ After years of blindly using Alamofire for API calls in iOS, I decided to use th
 ## Compilation ##
 This project uses CocoaPods to add third-party repositories to the Xcode project. Before building the project and with CocoaPods installed, run `pod install` in the project's root directory.
 
-## Structure ##
-
 ## Potential Features & Improvements ##
 * Sorting
 * Separate detail screen for individual reviews
@@ -20,6 +18,7 @@ This project uses CocoaPods to add third-party repositories to the Xcode project
 * Handle API errors
 * Determine review cell height dynamically
 * Unit tests
+* Move Info.plist into Config dir
 
 ## Third-Party Libraries ##
 * <a href="https://github.com/akiroom/AXRatingView" target="_blank">AXRatingView</a>
