@@ -29,6 +29,10 @@ class TourReviewNetworkSource {
     var sortOrder: TourReviewSortOrder?
     
     fileprivate var isLoading = false
+    
+    fileprivate var reviewsPages = [Int: [TourReview]]()
+    
+    fileprivate var numOfPages = 0
         
     init() {
         #if DEBUG
@@ -46,24 +50,15 @@ class TourReviewNetworkSource {
             return
         }
         
+        reviewsPages = [Int: [TourReview]]()
         isLoading = true
-        loadReviewsForPage(
-            0,
-            numOfPages: (amount / itemsPerPage) + 1,
-            previousReviews: [TourReview]()
-        )
+        numOfPages = (amount / itemsPerPage) + 1
+        for page in 0 ..< numOfPages {
+            loadReviewsOfPage(page)
+        }
     }
     
-    fileprivate func loadReviewsForPage(
-        _ page: Int,
-        numOfPages: Int,
-        previousReviews: [TourReview]
-    ) {
-        guard page < numOfPages else {
-            self.finishLoading(reviews: previousReviews)
-            return
-        }
-        
+    fileprivate func loadReviewsOfPage(_ page: Int) {
         let path = "/\(regionIDPath)/\(tourIDPath)/reviews.json"
         let resource = siestaService
             .resource(path)
@@ -80,7 +75,6 @@ class TourReviewNetworkSource {
             )
         }
         
-        var previousReviews = previousReviews
         resource.addObserver(owner: self) {
             (resource, event) in
             guard let response: TourReviewAPIResponse = resource.typedContent()
@@ -88,16 +82,8 @@ class TourReviewNetworkSource {
                 return
             }
             
-            previousReviews.append(contentsOf: response.reviews)
-            if previousReviews.count == response.totalNumOfReviews {
-                self.finishLoading(reviews: previousReviews)
-            } else {
-                self.loadReviewsForPage(
-                    page + 1,
-                    numOfPages: numOfPages,
-                    previousReviews: previousReviews
-                )
-            }
+            self.reviewsPages[page] = response.reviews
+            self.notifyDelegateIfFinished()
         }.loadIfNeeded()
     }
     
@@ -112,9 +98,20 @@ class TourReviewNetworkSource {
         }
     }
     
-    fileprivate func finishLoading(reviews: [TourReview]) {
+    fileprivate func notifyDelegateIfFinished() {
+        var reviews = [TourReview]()
+        for page in 0 ..< numOfPages {
+            guard let reviewsOfPage = reviewsPages[page] else {
+                return
+            }
+            
+            reviews.append(contentsOf: reviewsOfPage)
+        }
+        
         delegate?.didFetchTourReviews(reviews)
         isLoading = false
+//        numOfPages = 0
+//        reviewsPages = [Int: [TourReview]]()
     }
 }
 
