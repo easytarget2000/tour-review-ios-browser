@@ -4,7 +4,8 @@ protocol SortMenuControllerDelegate: NSObjectProtocol {
     
     func sortMenuController(
         _ sortMenuController: SortMenuController,
-        requestedSortOrder sortOrder: TourReviewSortDir
+        requestedSortOption sortOption: TourReviewSortOption,
+        direction: TourReviewSortDirection
     )
     
 }

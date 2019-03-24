@@ -9,7 +9,9 @@ class TourReviewNetworkSource {
     
     fileprivate static let pageParam = "page"
     
-    fileprivate static let sortOrderParam = "sortBy"
+    fileprivate static let sortOptionParam = "sortBy"
+    
+    fileprivate static let sortDirParam = "direction"
     
     fileprivate let siestaService = Service(
         baseURL: TourReviewNetworkSource.apiBaseURL,
@@ -28,7 +30,7 @@ class TourReviewNetworkSource {
     
     var sortOption: TourReviewSortOption?
 
-    var sortDir: TourReviewSortDir?
+    var sortDir: TourReviewSortDirection?
     
     fileprivate var isLoading = false
     
@@ -72,8 +74,12 @@ class TourReviewNetworkSource {
         
         if let sortOption = sortOption, let sortDir = sortDir {
             resource = resource.withParam(
-                TourReviewNetworkSource.sortOrderParam,
-                TourReviewNetworkSource.sortOrderParamValue(sortDir)
+                TourReviewNetworkSource.sortOptionParam,
+                TourReviewNetworkSource.sortOptionParamValue(sortOption)
+            )
+            resource = resource.withParam(
+                TourReviewNetworkSource.sortDirParam,
+                TourReviewNetworkSource.sortDirParamValue(sortDir)
             )
         }
         
@@ -90,14 +96,25 @@ class TourReviewNetworkSource {
         }.loadIfNeeded()
     }
     
-    fileprivate static func sortOrderParamValue(
-        _ sortOrder: TourReviewSortDir
+    fileprivate static func sortOptionParamValue(
+        _ sortOrder: TourReviewSortOption
+        ) -> String {
+        switch sortOrder {
+        case .rating:
+            return "rating"
+        case .date:
+            return "date_of_review"
+        }
+    }
+    
+    fileprivate static func sortDirParamValue(
+        _ sortOrder: TourReviewSortDirection
     ) -> String {
         switch sortOrder {
         case .ascending:
-            return "ASC"
+            return "asc"
         case .descending:
-            return "DESC"
+            return "desc"
         }
     }
     

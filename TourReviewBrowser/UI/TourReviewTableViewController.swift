@@ -31,7 +31,9 @@ class TourReviewTableViewController: UITableViewController {
         }
     }
     
-    fileprivate var sortOrder: TourReviewSortDir? {
+    fileprivate var sortOption: TourReviewSortOption?
+    
+    fileprivate var sortDir: TourReviewSortDirection? {
         didSet {
             reloadReviews()
         }
@@ -192,7 +194,8 @@ class TourReviewTableViewController: UITableViewController {
     }
     
     fileprivate func loadReviews(amount: Int) {
-        networkSource.sortDir = sortOrder
+        networkSource.sortOption = sortOption
+        networkSource.sortDir = sortDir
         networkSource.loadReviews(amount: amount)
     }
     
@@ -252,9 +255,11 @@ extension TourReviewTableViewController: SortMenuControllerDelegate {
     
     func sortMenuController(
         _ sortMenuController: SortMenuController,
-        requestedSortOrder sortOrder: TourReviewSortDir
+        requestedSortOption sortOption: TourReviewSortOption,
+        direction: TourReviewSortDirection
     ) {
         sortMenuController.close()
-        self.sortOrder = sortOrder
+        self.sortOption = sortOption
+        self.sortDir = direction
     }
 }

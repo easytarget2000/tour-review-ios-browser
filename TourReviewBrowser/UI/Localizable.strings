@@ -1,4 +1,6 @@
-"TourReviewsTableTitle"                 = "Reviews";
-"TourReviewsTableSortButton"            = "Sort";
-"TourReviewsTableAscendingSortOption"   = "Ascending";
-"TourReviewsTableDescendingSortOption"  = "Descending";
+"TourReviewsTableTitle"                     = "Reviews";
+"TourReviewsTableSortButton"                = "Sort";
+"TourReviewsTableAscendingDateOption"       = "Oldest Reviews";
+"TourReviewsTableDescendingDateOption"      = "Newest Reviews";
+"TourReviewsTableAscendingRatingOption"     = "Lowest Rating";
+"TourReviewsTableDescendingRatingOption"    = "Highest Rating";
