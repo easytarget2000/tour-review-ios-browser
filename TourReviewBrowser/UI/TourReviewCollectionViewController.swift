@@ -1,8 +1,8 @@
 import UIKit
 
-class TourReviewCollectionViewController: UICollectionViewController {
+class TourReviewCollectionViewController: UITableViewController {
     
-    fileprivate static let cellHeight = CGFloat(256)
+    fileprivate static let estimatedRowHeight = CGFloat(256)
     
     fileprivate static let displayToLoadingItemCountDelta = 5
     
@@ -36,10 +36,7 @@ class TourReviewCollectionViewController: UICollectionViewController {
         regionIDPath: String,
         tourIDPath: String
     ) -> TourReviewCollectionViewController {
-        let collectionViewLayout = UICollectionViewFlowLayout()
-        let instance = TourReviewCollectionViewController(
-            collectionViewLayout: collectionViewLayout
-        )
+        let instance = TourReviewCollectionViewController()
         instance.regionIDPath = regionIDPath
         instance.tourIDPath = tourIDPath
         return instance
@@ -55,35 +52,35 @@ class TourReviewCollectionViewController: UICollectionViewController {
         loadReviewsIfNeeded()
     }
 
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    // MARK: UITableViewDataSource
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-    override func collectionView(
-        _ collectionView: UICollectionView,
-        numberOfItemsInSection section: Int
+    
+    override func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
     ) -> Int {
         return numOfReviewCells
     }
-
-    override func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: TourReviewCollectionViewCell.identifier,
+    
+    override func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: TourReviewCollectionViewCell.identifier,
             for: indexPath
         ) as! TourReviewCollectionViewCell
     
         return populateCell(cell, atRow: indexPath.row)
     }
     
-    override func collectionView(
-        _ collectionView: UICollectionView,
-        willDisplay cell: UICollectionViewCell,
-        forItemAt indexPath: IndexPath
+    override func tableView(
+        _ tableView: UITableView,
+        willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
     ) {
         acknowledgeCell(index: indexPath.row)
     }
@@ -92,9 +89,8 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     fileprivate func setup() {
         view.backgroundColor = .white
-        collectionView.backgroundColor = .clear
         setTitle()
-        setupCollectionView()
+        setupTableView()
         setupNetworkSource()
     }
     
@@ -106,14 +102,18 @@ class TourReviewCollectionViewController: UICollectionViewController {
         self.title = title
     }
     
-    fileprivate func setupCollectionView() {
+    fileprivate func setupTableView() {
+        tableView.backgroundColor = .clear
+        tableView.estimatedRowHeight
+            = TourReviewCollectionViewController.estimatedRowHeight
+
         let reviewCellNib = UINib(
             nibName: TourReviewCollectionViewCell.nibName,
             bundle: nil
         )
-        collectionView.register(
+        tableView.register(
             reviewCellNib,
-            forCellWithReuseIdentifier: TourReviewCollectionViewCell.identifier
+            forCellReuseIdentifier: TourReviewCollectionViewCell.identifier
         )
         clearsSelectionOnViewWillAppear = false
     }
@@ -149,7 +149,7 @@ class TourReviewCollectionViewController: UICollectionViewController {
     }
     
     fileprivate func refreshContentView() {
-        collectionView.reloadData()
+        tableView.reloadData()
     }
     
     fileprivate func acknowledgeCell(index: Int) {
@@ -157,25 +157,6 @@ class TourReviewCollectionViewController: UICollectionViewController {
             numOfCellsDisplayed = index
             loadReviewsIfNeeded()
         }
-    }
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-
-extension TourReviewCollectionViewController:
-UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        return cellSize(availableWidth: collectionView.frame.width)
-    }
-    
-    fileprivate func cellSize(availableWidth: CGFloat) -> CGSize {
-        let cellHeight = TourReviewCollectionViewController.cellHeight
-        return CGSize(width: availableWidth, height: cellHeight)
     }
 }
 

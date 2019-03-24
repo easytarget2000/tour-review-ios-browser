@@ -1,6 +1,6 @@
 import AXRatingView
 
-class TourReviewCollectionViewCell: UICollectionViewCell {
+class TourReviewCollectionViewCell: UITableViewCell {
     
     static let identifier = "TourReviewCollectionViewCell"
     
