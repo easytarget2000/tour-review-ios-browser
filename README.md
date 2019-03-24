@@ -13,7 +13,6 @@ This project uses CocoaPods to add third-party repositories to the Xcode project
 * Sorting
 * Separate detail screen for individual reviews
 * Read tour ID from config file
-* Pull down to refresh
 * Add a loading indicator
 * Handle API errors
 * Unit tests
