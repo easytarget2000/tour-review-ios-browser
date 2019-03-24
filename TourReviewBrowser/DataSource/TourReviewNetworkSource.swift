@@ -18,9 +18,7 @@ class TourReviewNetworkSource {
     
     weak var delegate: TourReviewSourceDelegate?
     
-    var rating: Int?
-    
-    var itemsPerPage = 3
+    var itemsPerPage = 10
     
     var counter = 1
     
@@ -29,9 +27,7 @@ class TourReviewNetworkSource {
     var tourIDPath = ""
     
     var sortOrder: TourReviewSortOrder?
-    
-    var reviews = [Int: [TourReview]]()
-    
+        
     init() {
         #if DEBUG
             SiestaLog.Category.enabled =  [.network]
