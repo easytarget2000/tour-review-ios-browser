@@ -1,14 +1,14 @@
 import AXRatingView
 
-class TourReviewCollectionViewCell: UITableViewCell {
+class TourReviewCell: UITableViewCell {
+
+    static let identifier = "TourReviewCell"
     
-    static let identifier = "TourReviewCollectionViewCell"
-    
-    static let nibName = "TourReviewCollectionViewCell"
-    
-    @IBOutlet weak var titleLabel: UILabel!
+    static let nibName = "TourReviewCell"
     
     @IBOutlet weak var ratingView: AXRatingView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var messageLabel: UILabel!
     

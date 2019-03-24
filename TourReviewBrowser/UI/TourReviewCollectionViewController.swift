@@ -70,9 +70,9 @@ class TourReviewCollectionViewController: UITableViewController {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: TourReviewCollectionViewCell.identifier,
+            withIdentifier: TourReviewCell.identifier,
             for: indexPath
-        ) as! TourReviewCollectionViewCell
+        ) as! TourReviewCell
     
         return populateCell(cell, atRow: indexPath.row)
     }
@@ -104,16 +104,17 @@ class TourReviewCollectionViewController: UITableViewController {
     
     fileprivate func setupTableView() {
         tableView.backgroundColor = .clear
-        tableView.estimatedRowHeight
-            = TourReviewCollectionViewController.estimatedRowHeight
+//        tableView.estimatedRowHeight
+//            = TourReviewCollectionViewController.estimatedRowHeight
+        tableView.rowHeight = UITableView.automaticDimension
 
         let reviewCellNib = UINib(
-            nibName: TourReviewCollectionViewCell.nibName,
+            nibName: TourReviewCell.nibName,
             bundle: nil
         )
         tableView.register(
             reviewCellNib,
-            forCellReuseIdentifier: TourReviewCollectionViewCell.identifier
+            forCellReuseIdentifier: TourReviewCell.identifier
         )
         clearsSelectionOnViewWillAppear = false
     }
@@ -139,9 +140,9 @@ class TourReviewCollectionViewController: UITableViewController {
     }
     
     fileprivate func populateCell(
-        _ cell: TourReviewCollectionViewCell,
+        _ cell: TourReviewCell,
         atRow row: Int
-    ) -> TourReviewCollectionViewCell {
+    ) -> TourReviewCell {
         let review = reviews![row]
         let reviewViewModel = TourReviewViewModel(review: review)
         cell.populateWithViewModel(reviewViewModel)
