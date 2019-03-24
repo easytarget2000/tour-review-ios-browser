@@ -14,13 +14,12 @@ This project uses CocoaPods to add third-party repositories to the Xcode project
 ## Potential Features & Improvements ##
 * Sorting
 * Separate detail screen for individual reviews
-* Smoothness of scrolling while loading items from API
-* Empty cells bug
 * Read tour ID from config file
 * Pull down to refresh
 * Add a loading indicator
 * Handle API errors
 * Determine review cell height dynamically
+* Unit tests
 
 ## Third-Party Libraries ##
 * <a href="https://github.com/akiroom/AXRatingView" target="_blank">AXRatingView</a>
