@@ -53,7 +53,7 @@ class TourReviewNetworkSource {
         previousReviews: [TourReview]
     ) {
         guard page < numOfPages else {
-            delegate?.didFetchTourReviews(previousReviews)
+            self.finishLoading(reviews: previousReviews)
             return
         }
         
@@ -82,11 +82,15 @@ class TourReviewNetworkSource {
             }
             
             previousReviews.append(contentsOf: response.reviews)
-            self.loadReviewsForPage(
-                page + 1,
-                numOfPages: numOfPages,
-                previousReviews: previousReviews
-            )
+            if previousReviews.count == response.totalNumOfReviews {
+                self.finishLoading(reviews: previousReviews)
+            } else {
+                self.loadReviewsForPage(
+                    page + 1,
+                    numOfPages: numOfPages,
+                    previousReviews: previousReviews
+                )
+            }
         }.loadIfNeeded()
     }
     
@@ -99,6 +103,10 @@ class TourReviewNetworkSource {
         case .descending:
             return "DESC"
         }
+    }
+    
+    fileprivate func finishLoading(reviews: [TourReview]) {
+        delegate?.didFetchTourReviews(reviews)
     }
 }
 
