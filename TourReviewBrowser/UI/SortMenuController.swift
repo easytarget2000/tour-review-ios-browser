@@ -12,38 +12,23 @@ class SortMenuController: UIAlertController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        addActions()
     }
     
-    fileprivate func setup() {
-        
-        let asccendingDateTitle = NSLocalizedString(
-            "TourReviewsTableAscendingDateOption",
-            comment: "Date Ascending"
+    fileprivate func addActions() {
+        let descendingRatingTitle = NSLocalizedString(
+            "TourReviewsTableDescendingRatingOption",
+            comment: "Rating Descending"
         )
-        let sortAscendingDateAction = UIAlertAction(
-            title: asccendingDateTitle,
+        let sortDescendingRatingAction = UIAlertAction(
+            title: descendingRatingTitle,
             style: .default,
             handler: {
                 _ in
-                self.selectAscendingDate()
+                self.selectDescendingRating()
             }
         )
-        addAction(sortAscendingDateAction)
-        
-        let descendingDateTitle = NSLocalizedString(
-            "TourReviewsTableDescendingDateOption",
-            comment: "Date Descending"
-        )
-        let sortDescendingDateAction = UIAlertAction(
-            title: descendingDateTitle,
-            style: .default,
-            handler: {
-                _ in
-                self.selectDescendingDate()
-            }
-        )
-        addAction(sortDescendingDateAction)
+        addAction(sortDescendingRatingAction)
         
         let asccendingRatingTitle = NSLocalizedString(
             "TourReviewsTableAscendingRatingOption",
@@ -59,19 +44,33 @@ class SortMenuController: UIAlertController {
         )
         addAction(sortAscendingRatingAction)
         
-        let descendingRatingTitle = NSLocalizedString(
-            "TourReviewsTableDescendingRatingOption",
-            comment: "Rating Descending"
+        let descendingDateTitle = NSLocalizedString(
+            "TourReviewsTableDescendingDateOption",
+            comment: "Date Descending"
         )
-        let sortDescendingRatingAction = UIAlertAction(
-            title: descendingRatingTitle,
+        let sortDescendingDateAction = UIAlertAction(
+            title: descendingDateTitle,
             style: .default,
             handler: {
                 _ in
-                self.selectDescendingRating()
+                self.selectDescendingDate()
+        }
+        )
+        addAction(sortDescendingDateAction)
+        
+        let asccendingDateTitle = NSLocalizedString(
+            "TourReviewsTableAscendingDateOption",
+            comment: "Date Ascending"
+        )
+        let sortAscendingDateAction = UIAlertAction(
+            title: asccendingDateTitle,
+            style: .default,
+            handler: {
+                _ in
+                self.selectAscendingDate()
             }
         )
-        addAction(sortDescendingRatingAction)
+        addAction(sortAscendingDateAction)
     }
     
     func close() {

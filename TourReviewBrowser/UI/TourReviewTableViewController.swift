@@ -187,6 +187,7 @@ class TourReviewTableViewController: UITableViewController {
     }
     
     @objc func reloadReviews() {
+        numOfCellsDisplayed = 0
         fadeOut()
         loadReviews(amount:
             TourReviewTableViewController.displayToLoadingItemCountDelta
