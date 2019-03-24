@@ -1,2 +1,4 @@
-"TourReviewsTableTitle"     = "Reviews";
-"TourReviewsTableSortButton"    = "Sort";
+"TourReviewsTableTitle"                 = "Reviews";
+"TourReviewsTableSortButton"            = "Sort";
+"TourReviewsTableAscendingSortOption"   = "Ascending";
+"TourReviewsTableDescendingSortOption"  = "Descending";

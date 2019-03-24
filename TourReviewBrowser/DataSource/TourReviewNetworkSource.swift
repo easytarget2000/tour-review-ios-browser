@@ -26,7 +26,9 @@ class TourReviewNetworkSource {
     
     var tourIDPath = ""
     
-    var sortOrder: TourReviewSortOrder?
+    var sortOption: TourReviewSortOption?
+
+    var sortDir: TourReviewSortDir?
     
     fileprivate var isLoading = false
     
@@ -60,7 +62,7 @@ class TourReviewNetworkSource {
     
     fileprivate func loadReviewsOfPage(_ page: Int) {
         let path = "/\(regionIDPath)/\(tourIDPath)/reviews.json"
-        let resource = siestaService
+        var resource = siestaService
             .resource(path)
             .withParam(
                 TourReviewNetworkSource.numOfItemsPerPageParam,
@@ -68,10 +70,10 @@ class TourReviewNetworkSource {
             )
             .withParam(TourReviewNetworkSource.pageParam, String(page))
         
-        if let sortOrder = sortOrder {
-            let _ = resource.withParam(
+        if let sortOption = sortOption, let sortDir = sortDir {
+            resource = resource.withParam(
                 TourReviewNetworkSource.sortOrderParam,
-                TourReviewNetworkSource.sortOrderParamValue(sortOrder)
+                TourReviewNetworkSource.sortOrderParamValue(sortDir)
             )
         }
         
@@ -89,7 +91,7 @@ class TourReviewNetworkSource {
     }
     
     fileprivate static func sortOrderParamValue(
-        _ sortOrder: TourReviewSortOrder
+        _ sortOrder: TourReviewSortDir
     ) -> String {
         switch sortOrder {
         case .ascending:

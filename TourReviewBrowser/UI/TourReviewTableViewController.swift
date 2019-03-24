@@ -31,6 +31,12 @@ class TourReviewTableViewController: UITableViewController {
         }
     }
     
+    fileprivate var sortOrder: TourReviewSortDir? {
+        didSet {
+            reloadReviews()
+        }
+    }
+    
     fileprivate var numOfCellsDisplayed = 0
     
     fileprivate var didReachEnd = false
@@ -124,7 +130,9 @@ class TourReviewTableViewController: UITableViewController {
     }
     
     @objc func showSortMenu() {
-        
+        let sortMenu = SortMenuController()
+        sortMenu.delegate = self
+        present(sortMenu, animated: true, completion: nil)
     }
     
     fileprivate func setupTableView() {
@@ -177,12 +185,14 @@ class TourReviewTableViewController: UITableViewController {
     }
     
     @objc func reloadReviews() {
+        fadeOut()
         loadReviews(amount:
             TourReviewTableViewController.displayToLoadingItemCountDelta
         )
     }
     
     fileprivate func loadReviews(amount: Int) {
+        networkSource.sortDir = sortOrder
         networkSource.loadReviews(amount: amount)
     }
     
@@ -233,5 +243,18 @@ extension TourReviewTableViewController: TourReviewSourceDelegate {
     func didFetchTourReviews(_ reviews: [TourReview]?, didReachEnd: Bool) {
         self.reviews = reviews
         self.didReachEnd = didReachEnd
+    }
+}
+
+// MARK: - SortMenuControllerDelegate
+
+extension TourReviewTableViewController: SortMenuControllerDelegate {
+    
+    func sortMenuController(
+        _ sortMenuController: SortMenuController,
+        requestedSortOrder sortOrder: TourReviewSortDir
+    ) {
+        sortMenuController.close()
+        self.sortOrder = sortOrder
     }
 }
