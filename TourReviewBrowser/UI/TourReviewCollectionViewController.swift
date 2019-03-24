@@ -18,8 +18,6 @@ class TourReviewCollectionViewController: UICollectionViewController {
         }
     }
     
-    fileprivate var loadingReviews = false
-    
     fileprivate var numOfReviewCells: Int {
         get {
             guard let reviews = reviews else {
@@ -125,23 +123,12 @@ class TourReviewCollectionViewController: UICollectionViewController {
     }
     
     fileprivate func loadReviewsIfNeeded() {
-        guard !loadingReviews else {
-            return
-        }
-        
         let minNumberOfReviews = numOfCellsDisplayed
             + TourReviewCollectionViewController.displayToLoadingItemCountDelta
         
-        let loadMore: Bool
-        if let reviews = reviews {
-            loadMore = reviews.count < minNumberOfReviews
-        } else {
-            loadMore = true
-        }
-        
+        let loadMore = (reviews?.count ?? 0) < minNumberOfReviews
         if loadMore {
             networkSource.loadReviews(amount: minNumberOfReviews)
-            loadingReviews = true
         }
     }
     
@@ -192,6 +179,5 @@ extension TourReviewCollectionViewController: TourReviewSourceDelegate {
     
     func didFetchTourReviews(_ reviews: [TourReview]?) {
         self.reviews = reviews
-        loadingReviews = false
     }
 }

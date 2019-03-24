@@ -27,6 +27,8 @@ class TourReviewNetworkSource {
     var tourIDPath = ""
     
     var sortOrder: TourReviewSortOrder?
+    
+    fileprivate var isLoading = false
         
     init() {
         #if DEBUG
@@ -40,6 +42,11 @@ class TourReviewNetworkSource {
     }
     
     func loadReviews(amount: Int) {
+        guard !isLoading else {
+            return
+        }
+        
+        isLoading = true
         loadReviewsForPage(
             0,
             numOfPages: (amount / itemsPerPage) + 1,
@@ -107,6 +114,7 @@ class TourReviewNetworkSource {
     
     fileprivate func finishLoading(reviews: [TourReview]) {
         delegate?.didFetchTourReviews(reviews)
+        isLoading = false
     }
 }
 
