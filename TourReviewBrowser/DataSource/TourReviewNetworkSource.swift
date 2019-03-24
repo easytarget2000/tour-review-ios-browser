@@ -83,7 +83,8 @@ class TourReviewNetworkSource {
             }
             
             self.reviewsPages[page] = response.reviews
-            self.notifyDelegateIfFinished()
+            let totalNumOfReviews = response.totalNumOfReviews
+            self.notifyDelegateIfFinished(maxNumOfReviews: totalNumOfReviews)
         }.loadIfNeeded()
     }
     
