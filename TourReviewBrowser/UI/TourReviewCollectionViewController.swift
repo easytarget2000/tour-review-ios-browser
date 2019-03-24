@@ -4,6 +4,8 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     fileprivate static let cellHeight = CGFloat(256)
     
+    fileprivate static let displayToLoadingItemCountDelta = 5
+    
     fileprivate let networkSource = TourReviewNetworkSource()
     
     fileprivate var regionIDPath: String!
@@ -15,6 +17,8 @@ class TourReviewCollectionViewController: UICollectionViewController {
             refreshContentView()
         }
     }
+    
+    fileprivate var loadingReviews = false
     
     fileprivate var numOfReviewCells: Int {
         get {
@@ -121,8 +125,23 @@ class TourReviewCollectionViewController: UICollectionViewController {
     }
     
     fileprivate func loadReviewsIfNeeded() {
-        if (numOfCellsDisplayed + 1) >= reviews?.count ?? 0 {
-            networkSource.loadReviews(amount: numOfCellsDisplayed + 1)
+        guard !loadingReviews else {
+            return
+        }
+        
+        let minNumberOfReviews = numOfCellsDisplayed
+            + TourReviewCollectionViewController.displayToLoadingItemCountDelta
+        
+        let loadMore: Bool
+        if let reviews = reviews {
+            loadMore = reviews.count < minNumberOfReviews
+        } else {
+            loadMore = true
+        }
+        
+        if loadMore {
+            networkSource.loadReviews(amount: minNumberOfReviews)
+            loadingReviews = true
         }
     }
     
@@ -173,5 +192,6 @@ extension TourReviewCollectionViewController: TourReviewSourceDelegate {
     
     func didFetchTourReviews(_ reviews: [TourReview]?) {
         self.reviews = reviews
+        loadingReviews = false
     }
 }
