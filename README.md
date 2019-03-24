@@ -10,7 +10,6 @@ After years of blindly using Alamofire for API calls in iOS, I decided to use th
 This project uses CocoaPods to add third-party repositories to the Xcode project. Before building the project and with CocoaPods installed, run `pod install` in the project's root directory.
 
 ## Potential Features & Improvements ##
-* Sorting
 * Separate detail screen for individual reviews
 * Read tour ID from config file
 * Add a loading indicator
