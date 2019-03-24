@@ -102,7 +102,7 @@ class TourReviewTableViewController: UITableViewController {
     
     fileprivate func setTitle() {
         let title = NSLocalizedString(
-            "TourReviewCollectionTitle",
+            "TourReviewsTableTitle",
             comment: "Reviews"
         )
         self.title = title
