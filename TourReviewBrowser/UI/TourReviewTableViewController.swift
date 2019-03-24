@@ -4,6 +4,8 @@ class TourReviewTableViewController: UITableViewController {
     
     fileprivate static let estimatedRowHeight = CGFloat(256)
     
+    fileprivate static let fadeInDuration = TimeInterval(0.15)
+    
     fileprivate static let displayToLoadingItemCountDelta = 5
     
     fileprivate let networkSource = TourReviewNetworkSource()
@@ -46,6 +48,7 @@ class TourReviewTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        fadeOut()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +109,7 @@ class TourReviewTableViewController: UITableViewController {
     
     fileprivate func setupTableView() {
         tableView.backgroundColor = .clear
+        tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
 
         let reviewCellNib = UINib(
@@ -173,6 +177,7 @@ class TourReviewTableViewController: UITableViewController {
     }
     
     fileprivate func refreshContentView() {
+        fadeIn()
         tableView.reloadData()
     }
     
@@ -181,6 +186,23 @@ class TourReviewTableViewController: UITableViewController {
             numOfCellsDisplayed = index
             loadReviewsIfNeeded()
         }
+    }
+    
+    fileprivate func fadeOut() {
+        view.alpha = 0
+    }
+    
+    fileprivate func fadeIn() {
+        guard view.alpha < 1 else {
+            return
+        }
+        
+        UIView.animate(
+            withDuration: TourReviewTableViewController.fadeInDuration,
+            animations: {
+                self.view.alpha = 1
+            }
+        )
     }
 }
 
