@@ -30,6 +30,8 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     fileprivate var numOfCellsDisplayed = 0
     
+    fileprivate var didReachEnd = false
+    
     static func newInstance(
         regionIDPath: String,
         tourIDPath: String
@@ -123,6 +125,10 @@ class TourReviewCollectionViewController: UICollectionViewController {
     }
     
     fileprivate func loadReviewsIfNeeded() {
+        guard !didReachEnd else {
+            return
+        }
+        
         let minNumberOfReviews = numOfCellsDisplayed
             + TourReviewCollectionViewController.displayToLoadingItemCountDelta
         
@@ -177,7 +183,8 @@ UICollectionViewDelegateFlowLayout {
 
 extension TourReviewCollectionViewController: TourReviewSourceDelegate {
     
-    func didFetchTourReviews(_ reviews: [TourReview]?) {
+    func didFetchTourReviews(_ reviews: [TourReview]?, didReachEnd: Bool) {
         self.reviews = reviews
+        self.didReachEnd = didReachEnd
     }
 }

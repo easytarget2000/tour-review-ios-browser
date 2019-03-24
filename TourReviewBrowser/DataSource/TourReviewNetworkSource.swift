@@ -98,7 +98,7 @@ class TourReviewNetworkSource {
         }
     }
     
-    fileprivate func notifyDelegateIfFinished() {
+    fileprivate func notifyDelegateIfFinished(maxNumOfReviews: Int) {
         var reviews = [TourReview]()
         for page in 0 ..< numOfPages {
             guard let reviewsOfPage = reviewsPages[page] else {
@@ -108,10 +108,10 @@ class TourReviewNetworkSource {
             reviews.append(contentsOf: reviewsOfPage)
         }
         
-        delegate?.didFetchTourReviews(reviews)
+        let didReachEnd = reviews.count == maxNumOfReviews
+        
+        delegate?.didFetchTourReviews(reviews, didReachEnd: didReachEnd)
         isLoading = false
-//        numOfPages = 0
-//        reviewsPages = [Int: [TourReview]]()
     }
 }
 
