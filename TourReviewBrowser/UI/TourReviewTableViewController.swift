@@ -141,7 +141,8 @@ class TourReviewTableViewController: UITableViewController {
         tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
-
+        tableView.allowsSelection = false
+        
         let reviewCellNib = UINib(
             nibName: TourReviewCell.nibName,
             bundle: nil
