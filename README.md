@@ -16,7 +16,6 @@ This project uses CocoaPods to add third-party repositories to the Xcode project
 * Pull down to refresh
 * Add a loading indicator
 * Handle API errors
-* Determine review cell height dynamically
 * Unit tests
 * Move Info.plist into Config dir
 
