@@ -94,6 +94,7 @@ class TourReviewTableViewController: UITableViewController {
     fileprivate func setup() {
         view.backgroundColor = .white
         setTitle()
+        addSortButton()
         setupTableView()
         setupRefreshControl()
         setupNetworkSource()
@@ -105,6 +106,25 @@ class TourReviewTableViewController: UITableViewController {
             comment: "Reviews"
         )
         self.title = title
+    }
+    
+    fileprivate func addSortButton() {
+        let sortButtonTitle = NSLocalizedString(
+            "TourReviewsTableSortButton",
+            comment: "Sort"
+        )
+        let sortButton = UIBarButtonItem(
+            title: sortButtonTitle,
+            style: .plain,
+            target: self,
+            action: #selector(showSortMenu)
+        )
+        
+        navigationItem.rightBarButtonItem = sortButton
+    }
+    
+    @objc func showSortMenu() {
+        
     }
     
     fileprivate func setupTableView() {
