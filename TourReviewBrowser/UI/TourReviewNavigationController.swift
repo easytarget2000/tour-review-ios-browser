@@ -15,7 +15,7 @@ class TourReviewNavigationController: UINavigationController {
     
     init() {
         super.init(
-            rootViewController: TourReviewCollectionViewController.newInstance(
+            rootViewController: TourReviewTableViewController.newInstance(
                 regionIDPath: "berlin-l17",
                 tourIDPath: "tempelhof-2-hour-airport-history-tour-berlin-airlift-more-t23776"
             )

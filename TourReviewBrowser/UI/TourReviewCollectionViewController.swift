@@ -1,6 +1,6 @@
 import UIKit
 
-class TourReviewCollectionViewController: UITableViewController {
+class TourReviewTableViewController: UITableViewController {
     
     fileprivate static let estimatedRowHeight = CGFloat(256)
     
@@ -35,8 +35,8 @@ class TourReviewCollectionViewController: UITableViewController {
     static func newInstance(
         regionIDPath: String,
         tourIDPath: String
-    ) -> TourReviewCollectionViewController {
-        let instance = TourReviewCollectionViewController()
+    ) -> TourReviewTableViewController {
+        let instance = TourReviewTableViewController()
         instance.regionIDPath = regionIDPath
         instance.tourIDPath = tourIDPath
         return instance
@@ -131,7 +131,7 @@ class TourReviewCollectionViewController: UITableViewController {
         }
         
         let minNumberOfReviews = numOfCellsDisplayed
-            + TourReviewCollectionViewController.displayToLoadingItemCountDelta
+            + TourReviewTableViewController.displayToLoadingItemCountDelta
         
         let loadMore = (reviews?.count ?? 0) < minNumberOfReviews
         if loadMore {
@@ -163,7 +163,7 @@ class TourReviewCollectionViewController: UITableViewController {
 
 // MARK: - TourReviewSourceDelegate
 
-extension TourReviewCollectionViewController: TourReviewSourceDelegate {
+extension TourReviewTableViewController: TourReviewSourceDelegate {
     
     func didFetchTourReviews(_ reviews: [TourReview]?, didReachEnd: Bool) {
         self.reviews = reviews
