@@ -4,6 +4,8 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     fileprivate static let cellHeight = CGFloat(256)
     
+    fileprivate let networkSource = TourReviewNetworkSource()
+    
     fileprivate var regionIDPath: String!
     
     fileprivate var tourIDPath: String!
@@ -23,6 +25,8 @@ class TourReviewCollectionViewController: UICollectionViewController {
             return reviews.count
         }
     }
+    
+    fileprivate var numOfCellsDisplayed = 0
     
     static func newInstance(
         regionIDPath: String,
@@ -72,6 +76,14 @@ class TourReviewCollectionViewController: UICollectionViewController {
         return populateCell(cell, atRow: indexPath.row)
     }
     
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        willDisplay cell: UICollectionViewCell,
+        forItemAt indexPath: IndexPath
+    ) {
+        acknowledgeCell(index: indexPath.row)
+    }
+    
     // MARK: - Implementations
     
     fileprivate func setup() {
@@ -79,6 +91,7 @@ class TourReviewCollectionViewController: UICollectionViewController {
         collectionView.backgroundColor = .clear
         setTitle()
         setupCollectionView()
+        setupNetworkSource()
     }
     
     fileprivate func setTitle() {
@@ -101,13 +114,14 @@ class TourReviewCollectionViewController: UICollectionViewController {
         clearsSelectionOnViewWillAppear = false
     }
     
+    fileprivate func setupNetworkSource() {
+        networkSource.delegate = self
+        networkSource.regionIDPath = regionIDPath
+        networkSource.tourIDPath = tourIDPath
+    }
+    
     fileprivate func loadReviews() {
-        TourReviewNetworkSource.loadReviews(
-            regionIDPath: regionIDPath,
-            tourIDPath: tourIDPath,
-            sortOrder: nil,
-            forDelegate: self
-        )
+        networkSource.loadReviews(amount: numOfCellsDisplayed + 1)
     }
     
     fileprivate func populateCell(
@@ -122,6 +136,13 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     fileprivate func refreshContentView() {
         collectionView.reloadData()
+    }
+    
+    fileprivate func acknowledgeCell(index: Int) {
+        if index > numOfCellsDisplayed {
+            numOfCellsDisplayed = index
+//            loadReviews()
+        }
     }
 }
 

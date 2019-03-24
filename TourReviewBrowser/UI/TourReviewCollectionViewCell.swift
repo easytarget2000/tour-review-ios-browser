@@ -16,7 +16,7 @@ class TourReviewCollectionViewCell: UICollectionViewCell {
     
     func populateWithViewModel(_ viewModel: TourReviewViewModel) {
         if let title = viewModel.title {
-            titleLabel.text = viewModel.title
+            titleLabel.text = title
             titleLabel.isHidden = false
         } else {
             titleLabel.isHidden = true

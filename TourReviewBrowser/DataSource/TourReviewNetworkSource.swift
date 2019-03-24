@@ -1,30 +1,36 @@
 import Siesta
 
-let TourReviewNetworkSource = _TourReviewNetworkSource()
-
-class _TourReviewNetworkSource {
+class TourReviewNetworkSource {
     
     fileprivate static let apiBaseURL
         = ConfigurationReader.value(forKey: .tourReviewAPIBaseURL)
     
-    fileprivate static let maxNumOfResultsParam = "count"
+    fileprivate static let numOfItemsPerPageParam = "count"
     
-    fileprivate static let resultsPageParam = "page"
+    fileprivate static let pageParam = "page"
     
     fileprivate static let sortOrderParam = "sortBy"
     
     fileprivate let siestaService = Service(
-        baseURL: _TourReviewNetworkSource.apiBaseURL,
+        baseURL: TourReviewNetworkSource.apiBaseURL,
         standardTransformers: []
     )
     
     weak var delegate: TourReviewSourceDelegate?
     
-    var maxNumOfReviews = 50
-    
-    var page = 0
-    
     var rating: Int?
+    
+    var itemsPerPage = 3
+    
+    var counter = 1
+    
+    var regionIDPath = ""
+    
+    var tourIDPath = ""
+    
+    var sortOrder: TourReviewSortOrder?
+    
+    var reviews = [Int: [TourReview]]()
     
     init() {
         #if DEBUG
@@ -37,32 +43,55 @@ class _TourReviewNetworkSource {
         }
     }
     
-    func loadReviews(
-        regionIDPath: String,
-        tourIDPath: String,
-        sortOrder: TourReviewSortOrder?,
-        forDelegate delegate: TourReviewSourceDelegate?
+    func loadReviews(amount: Int) {
+        loadReviewsForPage(
+            0,
+            numOfPages: (amount / itemsPerPage) + 1,
+            previousReviews: [TourReview]()
+        )
+    }
+    
+    fileprivate func loadReviewsForPage(
+        _ page: Int,
+        numOfPages: Int,
+        previousReviews: [TourReview]
     ) {
-        self.delegate = delegate
+        guard page < numOfPages else {
+            delegate?.didFetchTourReviews(previousReviews)
+            return
+        }
         
         let path = "/\(regionIDPath)/\(tourIDPath)/reviews.json"
         let resource = siestaService
             .resource(path)
             .withParam(
-                _TourReviewNetworkSource.maxNumOfResultsParam,
-                String(maxNumOfReviews)
+                TourReviewNetworkSource.numOfItemsPerPageParam,
+                String(itemsPerPage)
             )
-            .withParam(_TourReviewNetworkSource.resultsPageParam, String(page))
+            .withParam(TourReviewNetworkSource.pageParam, String(page))
         
         if let sortOrder = sortOrder {
             let _ = resource.withParam(
-                _TourReviewNetworkSource.sortOrderParam,
-                _TourReviewNetworkSource.sortOrderParamValue(sortOrder)
+                TourReviewNetworkSource.sortOrderParam,
+                TourReviewNetworkSource.sortOrderParamValue(sortOrder)
             )
         }
         
-        resource.addObserver(self)
-        resource.loadIfNeeded()
+        var previousReviews = previousReviews
+        resource.addObserver(owner: self) {
+            (resource, event) in
+            guard let response: TourReviewAPIResponse = resource.typedContent()
+                else {
+                return
+            }
+            
+            previousReviews.append(contentsOf: response.reviews)
+            self.loadReviewsForPage(
+                page + 1,
+                numOfPages: numOfPages,
+                previousReviews: previousReviews
+            )
+        }.load()
     }
     
     fileprivate static func sortOrderParamValue(
@@ -77,20 +106,3 @@ class _TourReviewNetworkSource {
     }
 }
 
-// MARK: - Siesta ResourceObserver
-
-extension _TourReviewNetworkSource: ResourceObserver {
-    
-    func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-        #if DEBUG
-            NSLog(event._objc_stringForm)
-        #endif
-        if let response: TourReviewAPIResponse = resource.typedContent() {
-            #if DEBUG
-                NSLog(response.reviews.debugDescription)
-            #endif
-            delegate?.didFetchTourReviews(response.reviews)
-        }
-    }
-    
-}
