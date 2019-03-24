@@ -20,12 +20,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKk-R4-qgR" userLabel="RatingView" customClass="AXRatingView">
-                        <rect key="frame" x="8" y="8" width="304" height="47.5"/>
+                        <rect key="frame" x="214.5" y="8" width="97.5" height="26.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfM-E1-kM0" userLabel="TitleLabel">
-                        <rect key="frame" x="8" y="63.5" width="304" height="20"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfM-E1-kM0" userLabel="TitleLabel">
+                        <rect key="frame" x="8" y="12" width="87" height="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,18 +45,18 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="J3O-kA-KCf" secondAttribute="trailing" constant="8" id="2KR-iF-xk0"/>
+                    <constraint firstItem="J3O-kA-KCf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="TKk-R4-qgR" secondAttribute="bottom" constant="8" id="6nh-75-9pa"/>
                     <constraint firstItem="2iG-Sg-hEP" firstAttribute="top" secondItem="J3O-kA-KCf" secondAttribute="bottom" constant="8" id="Fu2-k2-zIq"/>
-                    <constraint firstAttribute="trailing" secondItem="IfM-E1-kM0" secondAttribute="trailing" constant="8" id="JHg-Fo-pHj"/>
                     <constraint firstAttribute="trailing" secondItem="2iG-Sg-hEP" secondAttribute="trailing" constant="8" id="MHp-ZU-klW"/>
-                    <constraint firstItem="IfM-E1-kM0" firstAttribute="top" secondItem="TKk-R4-qgR" secondAttribute="bottom" constant="8" id="OST-yH-Uiw"/>
                     <constraint firstItem="TKk-R4-qgR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="PFm-Du-Ukb"/>
                     <constraint firstItem="J3O-kA-KCf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="TWa-yN-PMd"/>
-                    <constraint firstItem="J3O-kA-KCf" firstAttribute="top" secondItem="IfM-E1-kM0" secondAttribute="bottom" constant="8" id="WCB-tE-JQ6"/>
-                    <constraint firstItem="TKk-R4-qgR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YLS-Pi-4yL"/>
+                    <constraint firstItem="J3O-kA-KCf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IfM-E1-kM0" secondAttribute="bottom" constant="8" id="WCB-tE-JQ6"/>
+                    <constraint firstItem="IfM-E1-kM0" firstAttribute="top" secondItem="TKk-R4-qgR" secondAttribute="top" constant="4" id="c03-GG-sMQ"/>
                     <constraint firstAttribute="bottom" secondItem="2iG-Sg-hEP" secondAttribute="bottom" constant="8" id="cKP-gl-v3b"/>
                     <constraint firstItem="IfM-E1-kM0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="e9m-lH-Z5A"/>
                     <constraint firstAttribute="trailing" secondItem="TKk-R4-qgR" secondAttribute="trailing" constant="8" id="iwk-C8-fqV"/>
                     <constraint firstItem="2iG-Sg-hEP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="oGB-Ue-KXM"/>
+                    <constraint firstItem="TKk-R4-qgR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IfM-E1-kM0" secondAttribute="trailing" constant="16" id="wNp-YJ-x4R"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

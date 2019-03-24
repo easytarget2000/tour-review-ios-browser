@@ -25,6 +25,8 @@ class TourReviewCell: UITableViewCell {
         ratingView.value = viewModel.rating
         messageLabel.text = viewModel.message
         additionalInfoLabel.text = viewModel.additionalInfo
+        
+        layoutIfNeeded()
     }
     
 }
