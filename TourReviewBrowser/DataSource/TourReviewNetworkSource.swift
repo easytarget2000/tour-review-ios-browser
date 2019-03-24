@@ -1,31 +1,39 @@
 import Siesta
 
-let TourReviewNetworkSource = _TourReviewNetworkSource()
-
-class _TourReviewNetworkSource {
+class TourReviewNetworkSource {
     
     fileprivate static let apiBaseURL
         = ConfigurationReader.value(forKey: .tourReviewAPIBaseURL)
     
-    fileprivate static let maxNumOfResultsParam = "count"
+    fileprivate static let numOfItemsPerPageParam = "count"
     
-    fileprivate static let resultsPageParam = "page"
+    fileprivate static let pageParam = "page"
     
     fileprivate static let sortOrderParam = "sortBy"
     
     fileprivate let siestaService = Service(
-        baseURL: _TourReviewNetworkSource.apiBaseURL,
+        baseURL: TourReviewNetworkSource.apiBaseURL,
         standardTransformers: []
     )
     
     weak var delegate: TourReviewSourceDelegate?
     
-    var maxNumOfReviews = 50
+    var itemsPerPage = 10
     
-    var page = 0
+    var counter = 1
     
-    var rating: Int?
+    var regionIDPath = ""
     
+    var tourIDPath = ""
+    
+    var sortOrder: TourReviewSortOrder?
+    
+    fileprivate var isLoading = false
+    
+    fileprivate var reviewsPages = [Int: [TourReview]]()
+    
+    fileprivate var numOfPages = 0
+        
     init() {
         #if DEBUG
             SiestaLog.Category.enabled =  [.network]
@@ -37,32 +45,47 @@ class _TourReviewNetworkSource {
         }
     }
     
-    func loadReviews(
-        regionIDPath: String,
-        tourIDPath: String,
-        sortOrder: TourReviewSortOrder?,
-        forDelegate delegate: TourReviewSourceDelegate?
-    ) {
-        self.delegate = delegate
+    func loadReviews(amount: Int) {
+        guard !isLoading else {
+            return
+        }
         
+        reviewsPages = [Int: [TourReview]]()
+        isLoading = true
+        numOfPages = (amount / itemsPerPage) + 1
+        for page in 0 ..< numOfPages {
+            loadReviewsOfPage(page)
+        }
+    }
+    
+    fileprivate func loadReviewsOfPage(_ page: Int) {
         let path = "/\(regionIDPath)/\(tourIDPath)/reviews.json"
         let resource = siestaService
             .resource(path)
             .withParam(
-                _TourReviewNetworkSource.maxNumOfResultsParam,
-                String(maxNumOfReviews)
+                TourReviewNetworkSource.numOfItemsPerPageParam,
+                String(itemsPerPage)
             )
-            .withParam(_TourReviewNetworkSource.resultsPageParam, String(page))
+            .withParam(TourReviewNetworkSource.pageParam, String(page))
         
         if let sortOrder = sortOrder {
             let _ = resource.withParam(
-                _TourReviewNetworkSource.sortOrderParam,
-                _TourReviewNetworkSource.sortOrderParamValue(sortOrder)
+                TourReviewNetworkSource.sortOrderParam,
+                TourReviewNetworkSource.sortOrderParamValue(sortOrder)
             )
         }
         
-        resource.addObserver(self)
-        resource.loadIfNeeded()
+        resource.addObserver(owner: self) {
+            (resource, event) in
+            guard let response: TourReviewAPIResponse = resource.typedContent()
+                else {
+                return
+            }
+            
+            self.reviewsPages[page] = response.reviews
+            let totalNumOfReviews = response.totalNumOfReviews
+            self.notifyDelegateIfFinished(maxNumOfReviews: totalNumOfReviews)
+        }.loadIfNeeded()
     }
     
     fileprivate static func sortOrderParamValue(
@@ -75,22 +98,21 @@ class _TourReviewNetworkSource {
             return "DESC"
         }
     }
-}
-
-// MARK: - Siesta ResourceObserver
-
-extension _TourReviewNetworkSource: ResourceObserver {
     
-    func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-        #if DEBUG
-            NSLog(event._objc_stringForm)
-        #endif
-        if let response: TourReviewAPIResponse = resource.typedContent() {
-            #if DEBUG
-                NSLog(response.reviews.debugDescription)
-            #endif
-            delegate?.didFetchTourReviews(response.reviews)
+    fileprivate func notifyDelegateIfFinished(maxNumOfReviews: Int) {
+        var reviews = [TourReview]()
+        for page in 0 ..< numOfPages {
+            guard let reviewsOfPage = reviewsPages[page] else {
+                return
+            }
+            
+            reviews.append(contentsOf: reviewsOfPage)
         }
+        
+        let didReachEnd = reviews.count == maxNumOfReviews
+        
+        delegate?.didFetchTourReviews(reviews, didReachEnd: didReachEnd)
+        isLoading = false
     }
-    
 }
+

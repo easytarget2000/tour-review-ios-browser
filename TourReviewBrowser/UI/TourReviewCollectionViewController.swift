@@ -4,6 +4,10 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     fileprivate static let cellHeight = CGFloat(256)
     
+    fileprivate static let displayToLoadingItemCountDelta = 5
+    
+    fileprivate let networkSource = TourReviewNetworkSource()
+    
     fileprivate var regionIDPath: String!
     
     fileprivate var tourIDPath: String!
@@ -23,6 +27,10 @@ class TourReviewCollectionViewController: UICollectionViewController {
             return reviews.count
         }
     }
+    
+    fileprivate var numOfCellsDisplayed = 0
+    
+    fileprivate var didReachEnd = false
     
     static func newInstance(
         regionIDPath: String,
@@ -44,7 +52,7 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadReviews()
+        loadReviewsIfNeeded()
     }
 
     // MARK: UICollectionViewDataSource
@@ -72,6 +80,14 @@ class TourReviewCollectionViewController: UICollectionViewController {
         return populateCell(cell, atRow: indexPath.row)
     }
     
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        willDisplay cell: UICollectionViewCell,
+        forItemAt indexPath: IndexPath
+    ) {
+        acknowledgeCell(index: indexPath.row)
+    }
+    
     // MARK: - Implementations
     
     fileprivate func setup() {
@@ -79,6 +95,7 @@ class TourReviewCollectionViewController: UICollectionViewController {
         collectionView.backgroundColor = .clear
         setTitle()
         setupCollectionView()
+        setupNetworkSource()
     }
     
     fileprivate func setTitle() {
@@ -101,13 +118,24 @@ class TourReviewCollectionViewController: UICollectionViewController {
         clearsSelectionOnViewWillAppear = false
     }
     
-    fileprivate func loadReviews() {
-        TourReviewNetworkSource.loadReviews(
-            regionIDPath: regionIDPath,
-            tourIDPath: tourIDPath,
-            sortOrder: nil,
-            forDelegate: self
-        )
+    fileprivate func setupNetworkSource() {
+        networkSource.delegate = self
+        networkSource.regionIDPath = regionIDPath
+        networkSource.tourIDPath = tourIDPath
+    }
+    
+    fileprivate func loadReviewsIfNeeded() {
+        guard !didReachEnd else {
+            return
+        }
+        
+        let minNumberOfReviews = numOfCellsDisplayed
+            + TourReviewCollectionViewController.displayToLoadingItemCountDelta
+        
+        let loadMore = (reviews?.count ?? 0) < minNumberOfReviews
+        if loadMore {
+            networkSource.loadReviews(amount: minNumberOfReviews)
+        }
     }
     
     fileprivate func populateCell(
@@ -122,6 +150,13 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     fileprivate func refreshContentView() {
         collectionView.reloadData()
+    }
+    
+    fileprivate func acknowledgeCell(index: Int) {
+        if index > numOfCellsDisplayed {
+            numOfCellsDisplayed = index
+            loadReviewsIfNeeded()
+        }
     }
 }
 
@@ -148,7 +183,8 @@ UICollectionViewDelegateFlowLayout {
 
 extension TourReviewCollectionViewController: TourReviewSourceDelegate {
     
-    func didFetchTourReviews(_ reviews: [TourReview]?) {
+    func didFetchTourReviews(_ reviews: [TourReview]?, didReachEnd: Bool) {
         self.reviews = reviews
+        self.didReachEnd = didReachEnd
     }
 }
