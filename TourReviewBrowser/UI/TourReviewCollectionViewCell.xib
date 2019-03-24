@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TourReviewCollectionViewCell" customModule="TourReviewBrowser" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="282"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="420" height="282"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LS8-RQ-elI" userLabel="RatingView" customClass="AXRatingView">
+                        <rect key="frame" x="20" y="20" width="380" height="26.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="su8-22-GH3" userLabel="TitleLabel">
+                        <rect key="frame" x="20" y="54.5" width="380" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJo-2x-5bp" userLabel="MessageLabel">
+                        <rect key="frame" x="20" y="82.5" width="380" height="87.5"/>
+                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 - 1 January 2001" textAlignment="right" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-6S-BbT" userLabel="InfoLabel">
+                        <rect key="frame" x="20" y="178" width="380" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="XJo-2x-5bp" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="1WI-CZ-Hf3"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="LS8-RQ-elI" secondAttribute="trailing" constant="20" id="DoC-ia-6Eh"/>
+                <constraint firstItem="BWL-6S-BbT" firstAttribute="top" secondItem="XJo-2x-5bp" secondAttribute="bottom" constant="8" id="Pi0-oM-3JX"/>
+                <constraint firstItem="BWL-6S-BbT" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="Tv4-gG-YvQ"/>
+                <constraint firstItem="LS8-RQ-elI" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="Wzt-ta-Ai1"/>
+                <constraint firstItem="XJo-2x-5bp" firstAttribute="top" secondItem="su8-22-GH3" secondAttribute="bottom" constant="8" id="cf0-EG-XDX"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="BWL-6S-BbT" secondAttribute="trailing" constant="20" id="gGb-SJ-7Lh"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="XJo-2x-5bp" secondAttribute="trailing" constant="20" id="lNC-8u-VM6"/>
+                <constraint firstItem="su8-22-GH3" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="mKw-8Y-VZE"/>
+                <constraint firstItem="LS8-RQ-elI" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="20" id="naE-ic-QVf"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="su8-22-GH3" secondAttribute="trailing" constant="20" id="q0F-Vb-CAb"/>
+                <constraint firstItem="su8-22-GH3" firstAttribute="top" secondItem="LS8-RQ-elI" secondAttribute="bottom" constant="8" id="r8L-Zs-cgK"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BWL-6S-BbT" secondAttribute="bottom" constant="20" id="tVU-0W-RR7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="420" height="282"/>
+            <connections>
+                <outlet property="additionalInfoLabel" destination="BWL-6S-BbT" id="Rpo-EW-rkm"/>
+                <outlet property="messageLabel" destination="XJo-2x-5bp" id="re9-JG-49U"/>
+                <outlet property="ratingView" destination="LS8-RQ-elI" id="57U-bp-MhC"/>
+                <outlet property="titleLabel" destination="su8-22-GH3" id="Bk9-nx-mSz"/>
+            </connections>
+            <point key="canvasLocation" x="348.80000000000001" y="152.92353823088456"/>
+        </collectionViewCell>
+    </objects>
+</document>

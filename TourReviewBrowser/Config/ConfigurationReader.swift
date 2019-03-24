@@ -3,7 +3,7 @@ import Foundation
 struct ConfigurationReader {
     
     enum Key: String {
-        case apiBaseURL = "APIBaseURL"
+        case tourReviewAPIBaseURL = "TourReviewAPIBaseURL"
     }
     
     static func value(forKey key: Key) -> String {
