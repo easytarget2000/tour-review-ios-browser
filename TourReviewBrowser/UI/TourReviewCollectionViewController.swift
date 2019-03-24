@@ -48,7 +48,7 @@ class TourReviewCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadReviews()
+        loadReviewsIfNeeded()
     }
 
     // MARK: UICollectionViewDataSource
@@ -120,8 +120,10 @@ class TourReviewCollectionViewController: UICollectionViewController {
         networkSource.tourIDPath = tourIDPath
     }
     
-    fileprivate func loadReviews() {
-        networkSource.loadReviews(amount: numOfCellsDisplayed + 1)
+    fileprivate func loadReviewsIfNeeded() {
+        if (numOfCellsDisplayed + 1) >= reviews?.count ?? 0 {
+            networkSource.loadReviews(amount: numOfCellsDisplayed + 1)
+        }
     }
     
     fileprivate func populateCell(
@@ -141,7 +143,7 @@ class TourReviewCollectionViewController: UICollectionViewController {
     fileprivate func acknowledgeCell(index: Int) {
         if index > numOfCellsDisplayed {
             numOfCellsDisplayed = index
-//            loadReviews()
+            loadReviewsIfNeeded()
         }
     }
 }

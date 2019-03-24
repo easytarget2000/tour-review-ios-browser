@@ -91,7 +91,7 @@ class TourReviewNetworkSource {
                 numOfPages: numOfPages,
                 previousReviews: previousReviews
             )
-        }.load()
+        }.loadIfNeeded()
     }
     
     fileprivate static func sortOrderParamValue(
