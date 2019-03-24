@@ -109,6 +109,7 @@ class TourReviewTableViewController: UITableViewController {
     
     fileprivate func setupTableView() {
         tableView.backgroundColor = .clear
+        tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
 
         let reviewCellNib = UINib(
