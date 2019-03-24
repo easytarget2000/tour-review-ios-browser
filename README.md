@@ -17,6 +17,8 @@ This project uses CocoaPods to add third-party repositories to the Xcode project
 * Unit tests
 * Move Info.plist into Config dir
 * Clean up characters with encoding glitches
+* Show selected sort option
+* Set default sort option
 
 ## Third-Party Libraries ##
 * <a href="https://github.com/akiroom/AXRatingView" target="_blank">AXRatingView</a>
