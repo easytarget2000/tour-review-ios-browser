@@ -31,6 +31,14 @@ class TourReviewTableViewController: UITableViewController {
         }
     }
     
+    fileprivate var sortOption: TourReviewSortOption?
+    
+    fileprivate var sortDir: TourReviewSortDirection? {
+        didSet {
+            reloadReviews()
+        }
+    }
+    
     fileprivate var numOfCellsDisplayed = 0
     
     fileprivate var didReachEnd = false
@@ -94,6 +102,7 @@ class TourReviewTableViewController: UITableViewController {
     fileprivate func setup() {
         view.backgroundColor = .white
         setTitle()
+        addSortButton()
         setupTableView()
         setupRefreshControl()
         setupNetworkSource()
@@ -101,10 +110,31 @@ class TourReviewTableViewController: UITableViewController {
     
     fileprivate func setTitle() {
         let title = NSLocalizedString(
-            "TourReviewCollectionTitle",
+            "TourReviewsTableTitle",
             comment: "Reviews"
         )
         self.title = title
+    }
+    
+    fileprivate func addSortButton() {
+        let sortButtonTitle = NSLocalizedString(
+            "TourReviewsTableSortButton",
+            comment: "Sort"
+        )
+        let sortButton = UIBarButtonItem(
+            title: sortButtonTitle,
+            style: .plain,
+            target: self,
+            action: #selector(showSortMenu)
+        )
+        
+        navigationItem.rightBarButtonItem = sortButton
+    }
+    
+    @objc func showSortMenu() {
+        let sortMenu = SortMenuController()
+        sortMenu.delegate = self
+        present(sortMenu, animated: true, completion: nil)
     }
     
     fileprivate func setupTableView() {
@@ -157,12 +187,16 @@ class TourReviewTableViewController: UITableViewController {
     }
     
     @objc func reloadReviews() {
+        numOfCellsDisplayed = 0
+        fadeOut()
         loadReviews(amount:
             TourReviewTableViewController.displayToLoadingItemCountDelta
         )
     }
     
     fileprivate func loadReviews(amount: Int) {
+        networkSource.sortOption = sortOption
+        networkSource.sortDir = sortDir
         networkSource.loadReviews(amount: amount)
     }
     
@@ -213,5 +247,20 @@ extension TourReviewTableViewController: TourReviewSourceDelegate {
     func didFetchTourReviews(_ reviews: [TourReview]?, didReachEnd: Bool) {
         self.reviews = reviews
         self.didReachEnd = didReachEnd
+    }
+}
+
+// MARK: - SortMenuControllerDelegate
+
+extension TourReviewTableViewController: SortMenuControllerDelegate {
+    
+    func sortMenuController(
+        _ sortMenuController: SortMenuController,
+        requestedSortOption sortOption: TourReviewSortOption,
+        direction: TourReviewSortDirection
+    ) {
+        sortMenuController.close()
+        self.sortOption = sortOption
+        self.sortDir = direction
     }
 }

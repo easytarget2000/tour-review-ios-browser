@@ -9,7 +9,9 @@ class TourReviewNetworkSource {
     
     fileprivate static let pageParam = "page"
     
-    fileprivate static let sortOrderParam = "sortBy"
+    fileprivate static let sortOptionParam = "sortBy"
+    
+    fileprivate static let sortDirParam = "direction"
     
     fileprivate let siestaService = Service(
         baseURL: TourReviewNetworkSource.apiBaseURL,
@@ -26,7 +28,9 @@ class TourReviewNetworkSource {
     
     var tourIDPath = ""
     
-    var sortOrder: TourReviewSortOrder?
+    var sortOption: TourReviewSortOption?
+
+    var sortDir: TourReviewSortDirection?
     
     fileprivate var isLoading = false
     
@@ -60,7 +64,7 @@ class TourReviewNetworkSource {
     
     fileprivate func loadReviewsOfPage(_ page: Int) {
         let path = "/\(regionIDPath)/\(tourIDPath)/reviews.json"
-        let resource = siestaService
+        var resource = siestaService
             .resource(path)
             .withParam(
                 TourReviewNetworkSource.numOfItemsPerPageParam,
@@ -68,10 +72,14 @@ class TourReviewNetworkSource {
             )
             .withParam(TourReviewNetworkSource.pageParam, String(page))
         
-        if let sortOrder = sortOrder {
-            let _ = resource.withParam(
-                TourReviewNetworkSource.sortOrderParam,
-                TourReviewNetworkSource.sortOrderParamValue(sortOrder)
+        if let sortOption = sortOption, let sortDir = sortDir {
+            resource = resource.withParam(
+                TourReviewNetworkSource.sortOptionParam,
+                TourReviewNetworkSource.sortOptionParamValue(sortOption)
+            )
+            resource = resource.withParam(
+                TourReviewNetworkSource.sortDirParam,
+                TourReviewNetworkSource.sortDirParamValue(sortDir)
             )
         }
         
@@ -88,14 +96,25 @@ class TourReviewNetworkSource {
         }.loadIfNeeded()
     }
     
-    fileprivate static func sortOrderParamValue(
-        _ sortOrder: TourReviewSortOrder
+    fileprivate static func sortOptionParamValue(
+        _ sortOrder: TourReviewSortOption
+        ) -> String {
+        switch sortOrder {
+        case .rating:
+            return "rating"
+        case .date:
+            return "date_of_review"
+        }
+    }
+    
+    fileprivate static func sortDirParamValue(
+        _ sortOrder: TourReviewSortDirection
     ) -> String {
         switch sortOrder {
         case .ascending:
-            return "ASC"
+            return "asc"
         case .descending:
-            return "DESC"
+            return "desc"
         }
     }
     

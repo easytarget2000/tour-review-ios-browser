@@ -1,4 +1,4 @@
-enum TourReviewSortOrder {
+enum TourReviewSortDirection {
     case ascending
     case descending
 }
