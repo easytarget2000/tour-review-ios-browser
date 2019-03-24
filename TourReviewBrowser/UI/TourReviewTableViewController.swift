@@ -15,6 +15,7 @@ class TourReviewTableViewController: UITableViewController {
     fileprivate var reviews: [TourReview]? {
         didSet {
             refreshContentView()
+            stopRefreshControl()
         }
     }
     
@@ -91,6 +92,7 @@ class TourReviewTableViewController: UITableViewController {
         view.backgroundColor = .white
         setTitle()
         setupTableView()
+        setupRefreshControl()
         setupNetworkSource()
     }
     
@@ -104,8 +106,6 @@ class TourReviewTableViewController: UITableViewController {
     
     fileprivate func setupTableView() {
         tableView.backgroundColor = .clear
-//        tableView.estimatedRowHeight
-//            = TourReviewCollectionViewController.estimatedRowHeight
         tableView.rowHeight = UITableView.automaticDimension
 
         let reviewCellNib = UINib(
@@ -117,6 +117,19 @@ class TourReviewTableViewController: UITableViewController {
             forCellReuseIdentifier: TourReviewCell.identifier
         )
         clearsSelectionOnViewWillAppear = false
+    }
+    
+    fileprivate func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(
+            self,
+            action: #selector(reloadReviews),
+            for: .valueChanged
+        )
+    }
+    
+    fileprivate func stopRefreshControl() {
+        refreshControl?.endRefreshing()
     }
     
     fileprivate func setupNetworkSource() {
@@ -135,8 +148,18 @@ class TourReviewTableViewController: UITableViewController {
         
         let loadMore = (reviews?.count ?? 0) < minNumberOfReviews
         if loadMore {
-            networkSource.loadReviews(amount: minNumberOfReviews)
+            loadReviews(amount: minNumberOfReviews)
         }
+    }
+    
+    @objc func reloadReviews() {
+        loadReviews(amount:
+            TourReviewTableViewController.displayToLoadingItemCountDelta
+        )
+    }
+    
+    fileprivate func loadReviews(amount: Int) {
+        networkSource.loadReviews(amount: amount)
     }
     
     fileprivate func populateCell(
