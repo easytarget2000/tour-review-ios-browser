@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="318" id="KGk-i7-Jjw" customClass="TourReviewCell" customModule="TourReviewBrowser" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="318"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="317.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKk-R4-qgR" userLabel="RatingView" customClass="AXRatingView">
+                        <rect key="frame" x="8" y="8" width="304" height="47.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfM-E1-kM0" userLabel="TitleLabel">
+                        <rect key="frame" x="8" y="63.5" width="304" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3O-kA-KCf" userLabel="MessageLabel">
+                        <rect key="frame" x="8" y="91.5" width="304" height="192.5"/>
+                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 - 1 January 2001" textAlignment="right" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2iG-Sg-hEP" userLabel="InfoLabel">
+                        <rect key="frame" x="8" y="292" width="304" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="J3O-kA-KCf" secondAttribute="trailing" constant="8" id="2KR-iF-xk0"/>
+                    <constraint firstItem="2iG-Sg-hEP" firstAttribute="top" secondItem="J3O-kA-KCf" secondAttribute="bottom" constant="8" id="Fu2-k2-zIq"/>
+                    <constraint firstAttribute="trailing" secondItem="IfM-E1-kM0" secondAttribute="trailing" constant="8" id="JHg-Fo-pHj"/>
+                    <constraint firstAttribute="trailing" secondItem="2iG-Sg-hEP" secondAttribute="trailing" constant="8" id="MHp-ZU-klW"/>
+                    <constraint firstItem="IfM-E1-kM0" firstAttribute="top" secondItem="TKk-R4-qgR" secondAttribute="bottom" constant="8" id="OST-yH-Uiw"/>
+                    <constraint firstItem="TKk-R4-qgR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="PFm-Du-Ukb"/>
+                    <constraint firstItem="J3O-kA-KCf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="TWa-yN-PMd"/>
+                    <constraint firstItem="J3O-kA-KCf" firstAttribute="top" secondItem="IfM-E1-kM0" secondAttribute="bottom" constant="8" id="WCB-tE-JQ6"/>
+                    <constraint firstItem="TKk-R4-qgR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="YLS-Pi-4yL"/>
+                    <constraint firstAttribute="bottom" secondItem="2iG-Sg-hEP" secondAttribute="bottom" constant="8" id="cKP-gl-v3b"/>
+                    <constraint firstItem="IfM-E1-kM0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="e9m-lH-Z5A"/>
+                    <constraint firstAttribute="trailing" secondItem="TKk-R4-qgR" secondAttribute="trailing" constant="8" id="iwk-C8-fqV"/>
+                    <constraint firstItem="2iG-Sg-hEP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="oGB-Ue-KXM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="additionalInfoLabel" destination="2iG-Sg-hEP" id="o2h-W8-5qb"/>
+                <outlet property="messageLabel" destination="J3O-kA-KCf" id="BCU-q3-Lb9"/>
+                <outlet property="ratingView" destination="TKk-R4-qgR" id="KBk-R0-xgZ"/>
+                <outlet property="titleLabel" destination="IfM-E1-kM0" id="jhF-VF-1i5"/>
+            </connections>
+            <point key="canvasLocation" x="52.799999999999997" y="171.81409295352324"/>
+        </tableViewCell>
+    </objects>
+</document>
